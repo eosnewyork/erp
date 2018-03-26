@@ -27,8 +27,8 @@ Below are a flowchart and sample user interface design which visualizes the inte
 
 ### Process Flow
 *For illustrative purposes only*
-![alt text](process_flow.png "Description goes here")
+![process_flow](process_flow.png "Process flow")
 
 ### Sample User Interface
 *For illustrative purposes only*
-![alt text](sample_ui.png "Description goes here")
+![sample_ui](sample_ui.png "Sample UI")
