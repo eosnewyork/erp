@@ -19,3 +19,16 @@ Below is the “features-in-phases” approach for deploying the EOS Resource Pl
 * Phase 3 (Pending Chintai Development): Average lease price of Y EOS tokens available. 
 
 * Phase 4 (Pending EOS Ecosystem): Multi-chain resource estimation.
+
+## Process Flows and Interfaces (illustrative)
+
+Below are a flowchart and sample user interface design which visualizes the intended direction of the EOS Resource Planner:
+
+
+### Process Flow
+*For illustrative purposes only*
+![alt text](process_flow.png "Description goes here")
+
+### Sample User Interface
+*For illustrative purposes only*
+![alt text](sample_ui.png "Description goes here")
