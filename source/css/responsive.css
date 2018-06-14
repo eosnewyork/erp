@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+/*Larger devices (small laptops):*/
+@media only screen and (max-width: 1200px) {
+.container {
+	width: 900px;
+}
+}
+
+/*Medium devices (landscape tablets):*/
+@media only screen and (max-width: 992px) {
+.client {
+	width: 33.3333333%;
+}
+nav .social-list {
+	padding-bottom: 0;
+}
+.container {
+	width: 600px;
+}
+#menu-button {
+	display: table;
+}
+nav {
+	position: absolute;
+	width: 100%;
+	display: block;
+	z-index: 900;
+	background: #fff;
+	border-bottom: 1px solid #dedede;
+	-webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.05);
+	box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.05);
+	top: -500px;
+	-webkit-transition: top 0.3s ease-in-out;
+	-moz-transition: top 0.3s ease-in-out;
+	-o-transition: top 0.3s ease-in-out;
+	transition: top 0.3s ease-in-out;
+}
+.pushed-left nav {
+	top: -5px;
+	-webkit-transition: top 0.3s ease-in-out;
+	-moz-transition: top 0.3s ease-in-out;
+	-o-transition: top 0.3s ease-in-out;
+	transition: top 0.3s ease-in-out;
+}
+#main-nav ul {
+	float: none;
+	padding: 32px 0 20px;
+}
+#main-nav ul li {
+	float: none;
+	text-align: center;
+}
+#main-nav ul li a {
+	padding: 4px 0 5px 0px;
+}
+#main-nav ul li ul {
+	padding: 4px 0 5px;
+}
+}
+
+/* Move banner down on small devices */
+@media only screen and (max-width: 542px) {
+h4#headertitle-inner {
+	display: block;
+	top: 24px
+}
+
+h4#headertitle {
+	display: none;
+}
+}
+
+/*Small devices (portrait tablets):*/
+@media only screen and (max-width: 668px) {
+.container {
+	width: 320px;
+}
+.client {
+	width: 50%;
+}
+.tile-1 {
+	height: 200px;
+}
+.tile-2 {
+	width: 280px;
+	height: auto;
+	padding: 30px 35px 20px 35px;
+}
+.tile-4 {
+	width: 280px;
+	height: auto;
+}
+.element, .image-overlay {
+	width: 300px !important;
+}
+h1, h2 {
+	font-size: 28px;
+	letter-spacing: -0.5px;
+	margin-bottom: 20px;
+}
+#piechart {
+	width: 360px;
+	height: 280px;
+	cursor: default;
+	margin-left: -30px;
+}
+.piechart-tile {
+	height: 340px;
+}
+}
+
+/*Extra small devices (phones):*/
+@media only screen and (max-width: 480px) {
+footer p {
+	text-align: center !important;
+	float: none !important;
+}
+header .social-list {
+	right: 19px;
+}
+header .social-list li {
+	padding: 0 4px;
+}
+p.small {
+	padding-bottom: 0;
+}
+h3.panel-title {
+	padding: 25px 0px !important;
+}
+.panel-heading::after, .panel-heading::before {
+	right: 0;
+}
+.panel-body {
+	padding: 5px 0px 20px !important
+}
+.more-margin {
+	margin-top: 10px;
+}
+.header {
+	padding-bottom: 0px;
+}
+h1#logo {
+	margin-left: 25px;
+}
+header #eos-price-usd {
+	right: 30px;
+}
+}
