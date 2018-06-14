@@ -63,7 +63,7 @@ jQuery(window).load(function($) {
       target.innerHTML = netPrice.toFixed(8) + " EOS per Kb";
       target = document.getElementById("net-price-usd");
       target.innerHTML = "~ $" + (netPrice.toFixed(8) * eosPriceUsd).toFixed(3) + " USD per Kb";
-
+      
     }
     /* --- End of EOS data routines --- */
 
