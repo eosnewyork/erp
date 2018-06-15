@@ -34,7 +34,7 @@
     <link href="css/reset.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/contact.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/convert.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="css/responsive.css" rel="stylesheet" type="text/css" media="screen" />
@@ -110,26 +110,97 @@
               <p id="cpu-price-usd"></p>
               <div class="icons futuro_icons_186 absolute-top-right"></div>
             </div>
-            <!-- coming soon
             <div class="element tile-2 home bg-change">
-              <p class="small">RAM Statistics</p>
-              <h3 class="header">What resources are consumed in EOS?</h3>
-              <p>abcdefg</p>
-              <br>
-              <br>
-              <h3 class="header">Question 2</h3>
-              <p>abcd</p>
+              <p class="small">What can I afford?</p>
+              <div class="convert">
+                <h3 class="header">I currently have:</h3>
+                <div>
+                  <p class="col"><input name="eos-afford-ram" type="text" id="eos-afford-ram" size="11" title="1.0000" /></p>
+                  <p class="col"> EOS available for RAM</p>
+                </div>
+                <div>
+                  <p class="col"><input name="eos-afford-net" type="text" id="eos-afford-net" size="11" title="1.0000" /></p>
+                  <p class="col"> EOS available for Net</p>
+                </div>
+                <div>
+                  <p class="col"><input name="eos-afford-cpu" type="text" id="eos-afford-cpu" size="11" title="1.0000" /></p>
+                  <p class="col"> EOS available for CPU</p>
+                </div>
+                <!-- <input type="submit" value="calculate-afford" id="calculate-afford" name="Calculate" /> -->
+                <br>
+                <br>
+                <h3 class="header">You can afford:</h3>
+                <div>
+                  <p class="col" id="result-afford-ram">[value]</p>
+                  <p class="col"> bytes of RAM</p>
+                </div>
+                <div>
+                  <p class="col" id="result-afford-net">[value]</p>
+                  <p class="col"> bytes of Network Bandwidth</p>
+                </div>
+                <div>
+                  <p class="col" id="result-afford-cpu">[value]</p>
+                  <p class="col"> Ms of CPU Bandwidth</p>
+                </div>
+              </div>
             </div>
             <div class="element tile-2 home bg-change">
-              <p class="small">RAM Statistics</p>
-              <h3 class="header">What resources are consumed in EOS?</h3>
-              <p>abcdefg</p>
-              <br>
-              <br>
-              <h3 class="header">Question 2</h3>
-              <p>abcd</p>
+              <p class="small">What will it cost?</p>
+              <div class="convert">
+                <h3 class="header">I need to buy:</h3>
+                <div>
+                  <p class="col"><input name="eos-cost-ram" type="text" id="eos-cost-ram" size="11" title="10" /></p>
+                  <p class="col">
+                    <select size="1">
+                      <option value="ram-cost-bytes">bytes</option>
+                      <option value="ram-cost-kilobytes">Kb</option>
+                      <option value="ram-cost-megabytes">Mb</option>
+                      <option value="ram-cost-gigabytes">Gb</option>
+                    </select>
+                  </p>
+                  <p class="col"> of RAM</p>
+                </div>
+                <div>
+                  <p class="col"><input name="eos-cost-net" type="text" id="eos-cost-net" size="11" title="10" /></p>
+                  <p class="col">
+                    <select size="1">
+                      <option value="net-cost-bytes">bytes</option>
+                      <option value="net-cost-kilobytes">Kb</option>
+                      <option value="net-costmegabytes">Mb</option>
+                      <option value="net-cost-gigabytes">Gb</option>
+                    </select>
+                  </p>
+                  <p class="col"> of Network Bandwidth</p>
+                </div>
+                <div>
+                  <p class="col"><input name="eos-cost-cpu" type="text" id="eos-cost-cpu" size="11" title="10" /></p>
+                  <p class="col">
+                    <select size="1">
+                      <option value="microseconds">µs</option>
+                      <option value="milliseconds">ms</option>
+                      <option value="seconds">s</option>
+                    </select>
+                  </p>
+                  <p class="col"> of CPU Bandwidth</p>
+                </div>
+                <!-- <input type="submit" value="Calculate" id="calculate-eos" name="Calculate" /> -->
+                <br>
+                <br>
+                <h3 class="header">It will cost:</h3>
+                <div>
+                  <p class="col" id="result-cost-ram">[value]</p>
+                  <p class="col"> EOS for RAM</p>
+                </div>
+                <div>
+                  <p class="col" id="result-cost-net">[value]</p>
+                  <p class="col"> EOS for Network Bandwidth</p>
+                </div>
+                <div>
+                  <p class="col" id="result-cost-cpu">[value]</p>
+                  <p class="col"> EOS for CPU Bandwidth</p>
+                </div>
+              </div>
             </div>
-          -->
           </div>
         </div>
       </div>
@@ -168,8 +239,5 @@
           <script src="js/preloader.js" type="text/javascript"></script>
           <script src="js/bootstrap.min.js" type="text/javascript"></script>
           <script src="js/jquery.fancybox.pack.js" type="text/javascript"></script>
-          <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
-          <script src="js/piechart-loader.js" type="text/javascript"></script>
-          <script src="js/piechart.js" type="text/javascript"></script>
 </body>
 </html>

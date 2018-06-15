@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+html,
+body,
+div,
+h4,
+p {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   font-weight: inherit;
+   font-style: inherit;
+   font-size: 100%;
+   font-family: inherit;
+   vertical-align: baseline;
+}
+:focus {
+   outline: 0;
+}
+body {
+   line-height: 1;
+   color: black;
+   /*background: white;*/
+}
+.tile-1 {
+  width: 100%;
+  height: 100%;
+	padding: 30px 35px 20px 35px;
+}
+html {
+	overflow: -moz-scrollbars-vertical;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.element {
+	float: left;
+	background: none;
+	border: 1px solid #dedede;
+}
+*, *:before, *:after {
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	font-size: 16px;
+	font-family: "Open Sans", "IBM Plex Sans", "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	color: #666;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	text-rendering: optimizeLegibility;
+	outline: 0;
+}
+p {
+	padding: 0;
+	margin: 0 0 10px;
+	-webkit-transition: all 0.2s ease 0s;
+	transition: all 0.2s ease 0s;
+	position: relative;
+	line-height: 1.5;
+}
+p.small {
+	font-size: 75%;
+	font-weight: 400;
+	font-family: "Open Sans", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	opacity: 0.5;
+	letter-spacing: 1px;
+}
+h4 {
+	line-height: 1.35;
+	color: #2b2b2b;
+	display: block;
+	position: relative;
+	font-weight: 400;
+}
+h4 {
+	font-size: 22px;
+}
+.header {
+	margin-top: 0px;
+}
+#content {
+	width: 100%;
+	position: relative;
+	z-index: 55;
+	height: auto;
+}
+.element.bg-change {
+	background: #fff;
+	transition: box-shadow 0.3s ease-in-out;
+}
+.element {
+	overflow: hidden;
+	-webkit-transition: none;
+	transition: none;
+}
+.futuro_icons_143-widget {
+	background: url(../images/icons/futuro_icons_143.png) center no-repeat;
+	background-size: 42px 42px;
+}
+.futuro_icons_186-widget {
+	background: url(../images/icons/futuro_icons_186.png) center no-repeat;
+	background-size: 42px 42px;
+}
+.futuro_icons_253-widget {
+	background: url(../images/icons/futuro_icons_253.png) center no-repeat;
+	background-size: 42px 42px;
+}
+.icons {
+	position: relative;
+	height: 42px;
+	width: 42px;
+	margin-top: 25px;
+	margin-bottom: 15px;
+	display: inline-block;
+}
+.absolute-top-right {
+	position: absolute;
+	right: 35px;
+	top: 33px;
+	margin: 0;
+}
+.icon-to-the-right {
+	max-width: calc(100% - 55px);
+}

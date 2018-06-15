@@ -219,8 +219,6 @@ jQuery(window).load(function($) {
 
     eborLoadIsotope();
     updateEosData();  //~ Update EOS data on page load
-
-
     jQuery(window).trigger('resize').trigger('smartresize');
 
 

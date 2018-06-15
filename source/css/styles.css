@@ -752,7 +752,7 @@ section.same-color-as-previous-section {
 }
 .tile-2 {
 	width: 580px;
-	height: 580px;
+	height: 620px;
 	padding: 45px 60px 44px 50px;
 }
 .tile-3 {
@@ -1202,72 +1202,12 @@ header .social-list li {
 	position: relative;
 	top: 1px;
 }
-.futuro_icons_128 {
-	background: url(../images/icons/futuro_icons_128.png) center no-repeat;
-	background-size: 42px 42px;
-}
 .futuro_icons_186 {
 	background: url(../images/icons/futuro_icons_186.png) center no-repeat;
 	background-size: 42px 42px;
 }
-.futuro_icons_194 {
-	background: url(../images/icons/futuro_icons_194.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_55 {
-	background: url(../images/icons/futuro_icons_55.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_114 {
-	background: url(../images/icons/futuro_icons_114.png) center no-repeat;
-	background-size: 42px 42px;
-}
 .futuro_icons_143 {
 	background: url(../images/icons/futuro_icons_143.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_234 {
-	background: url(../images/icons/futuro_icons_234.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_43 {
-	background: url(../images/icons/futuro_icons_43.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_301 {
-	background: url(../images/icons/futuro_icons_301.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_115 {
-	background: url(../images/icons/futuro_icons_115.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_73 {
-	background: url(../images/icons/futuro_icons_73.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_121 {
-	background: url(../images/icons/futuro_icons_121.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_278 {
-	background: url(../images/icons/futuro_icons_278.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_300 {
-	background: url(../images/icons/futuro_icons_300.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_49 {
-	background: url(../images/icons/futuro_icons_49.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_182 {
-	background: url(../images/icons/futuro_icons_182.png) center no-repeat;
-	background-size: 42px 42px;
-}
-.futuro_icons_update_112 {
-	background: url(../images/icons/futuro_icons_update_112.png) center no-repeat;
 	background-size: 42px 42px;
 }
 .futuro_icons_253 {
@@ -1526,4 +1466,12 @@ ul.pagination li a.active:hover {
 	cursor: default;
 }
 /* =End Lists
+--------------------------------------------------------------------------------------------------------*/
+
+/* =12. Custom
+--------------------------------------------------------------------------------------------------------*/
+.col {
+  display: inline-block;
+}
+/* =End Custom
 --------------------------------------------------------------------------------------------------------*/
