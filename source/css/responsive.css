@@ -73,6 +73,17 @@ h4#headertitle {
 
 /*Small devices (portrait tablets):*/
 @media only screen and (max-width: 668px) {
+	/* re-arrange footer on smaller screens */
+#eosnylogo {
+bottom: 35px
+}
+#sourcecode {
+position: relative;
+}
+.social-list {
+padding-bottom: 16px;
+bottom: 51px
+}
 .container {
 	width: 320px;
 }
@@ -145,5 +156,13 @@ h1#logo {
 }
 header #eos-price-usd {
 	right: 30px;
+}
+.social-list {
+	position: relative;
+	bottom: -5px;
+	right: 0px;
+}
+#eosnylogo {
+	bottom: 22px;
 }
 }
