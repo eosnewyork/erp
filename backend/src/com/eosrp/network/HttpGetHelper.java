@@ -17,11 +17,13 @@ public class HttpGetHelper {
 	
 	private String url;
 	private String returnResponse;
+	
+	//~~ Constructor ~~/
 	public HttpGetHelper(String _url) {
 		url = _url;
 	}
 	
-	public int sendRequest() throws IOException {
+	public void sendRequest() throws IOException {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(url);
 		CloseableHttpResponse response = httpclient.execute(httpGet);
@@ -35,7 +37,6 @@ public class HttpGetHelper {
 		} finally {
 		    response.close();
 		}
-		return 0;
 		
 	}
 

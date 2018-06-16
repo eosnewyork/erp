@@ -1,5 +1,6 @@
 package com.eosrp;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.eosrp.db.DbContract;
@@ -8,7 +9,7 @@ import com.eosrp.network.*;
 
 public class PriceDbWriter {	
 	
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, IOException {
 		
 		
 		//~ Initialize DB connection ~//
@@ -48,6 +49,10 @@ public class PriceDbWriter {
 					rs.getString(3));
 		}
 		//----------//
+		
+		//~ Get request test ~//
+		HttpGetHelper getTest = new HttpGetHelper("http://google.com");
+		getTest.sendRequest();
 
 	}
 
