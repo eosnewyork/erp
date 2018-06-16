@@ -3,6 +3,10 @@ package com.eosrp;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+
 import com.eosrp.db.DbContract;
 import com.eosrp.db.PostgresHelper;
 import com.eosrp.network.*;
@@ -10,6 +14,10 @@ import com.eosrp.network.*;
 public class PriceDbWriter {	
 	
 	public static void main(String[] args) throws SQLException, IOException {
+		
+		String urlGetTableRows = "http://node1.eosphere.io:8888";
+		String urlGetAccount = "http://node1.eosphere.io:8888/v1/chain/get_account";
+		String urlEosPriceUsd = "https://api.coinmarketcap.com/v2/ticker/1765/";
 		
 		
 		//~ Initialize DB connection ~//
@@ -51,8 +59,15 @@ public class PriceDbWriter {
 		//----------//
 		
 		//~ Get request test ~//
-		HttpGetHelper getTest = new HttpGetHelper("http://google.com");
-		System.out.println(getTest.sendRequest());
+		HttpGetHelper getTest = new HttpGetHelper(urlEosPriceUsd);
+		String jsonString = getTest.sendRequest();
+		
+		JSONObject jsonObject = (JSONObject) JSONValue.parse(jsonString);
+		
+		JSONObject data = (JSONObject) jsonObject.get("data");
+		String symbol = (String) data.get("symbol");
+		
+		System.out.println(symbol);
 
 	}
 

@@ -1,45 +1,54 @@
 package com.eosrp.network;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.json.simple.JSONObject;
 
 public class HttpPostHelper {
 	
-	/* Take in a map of parameters (<param1, val1>, <param2, val2>)
-	 * Use this map to construct the JSON of the POST request
-	 * Return a map of the JSON result
+	/* Take in URL to send a request to and JSON payload for request body
+	 * Parse map of parameters into JSON to send in request
+	 * Return JSON of response
 	 */
 	
 	private String url;
-	private HashMap<String, String> parameters;
+	private String returnResponse;
+	private JSONObject reqJson;
 	
-	public HttpPostHelper(String _url, HashMap<String, String> _parameters) {
+	
+	//~~ Constructor ~~/
+	public HttpPostHelper(String _url, JSONObject _reqJson) {
 		url = _url;
-		parameters = _parameters;
+		reqJson = _reqJson;
 	}
 	
-	public int sendRequest() throws IOException {
+	public String sendRequest() throws IOException {
+		//JSONObject json = new JSONObject();
+		//json.put("key1", "val1");
+		String respString;
+		
+		//System.out.println(json.get("key1"));
+		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpGet httpGet = new HttpGet("http://targethost/homepage");
-		CloseableHttpResponse response1 = httpclient.execute(httpGet);
+		HttpGet httpGet = new HttpGet(url);
+		CloseableHttpResponse response = httpclient.execute(httpGet);
 		
 		try {
-		    System.out.println(response1.getStatusLine());
-		    HttpEntity entity1 = response1.getEntity();
-		    // do something useful with the response body
-		    // and ensure it is fully consumed
-		    EntityUtils.consume(entity1);
+		    System.out.println(response.getStatusLine());
+		    HttpEntity respEntity = response.getEntity();
+		    respString = EntityUtils.toString(respEntity);
+		    EntityUtils.consume(respEntity);
 		} finally {
-		    response1.close();
+		    response.close();
 		}
-		return 0;
-		
+		return respString;
 	}
 
 }
