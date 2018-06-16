@@ -7,22 +7,22 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 public class HttpGetHelper {
-	
-	/* Take in only the URL to send a request to
-	 * Return a map of the JSON result
-	 * (<param1, val1>, <param2, val2>)
-	 */
-	
+
 	private String strUrl;
 	
-	//~~ Constructor
+	//~ Constructor
 	public HttpGetHelper(String _url) {
 		strUrl = _url;
 	}
 	
-	public String sendRequest() throws IOException {
+	//~ Sends an HTTP GET request to the URL passed into the constructor
+	//~ 
+	//~ Returns a JSON object of the response JSON
+	public JSONObject sendRequest() throws IOException {
 		String _strRespString;
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -38,7 +38,8 @@ public class HttpGetHelper {
 		} finally {
 		    response.close();
 		}
-		return _strRespString;
+		
+		return (JSONObject) JSONValue.parse(_strRespString);
 	}
 	
 	

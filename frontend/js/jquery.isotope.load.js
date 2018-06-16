@@ -25,7 +25,7 @@ jQuery(window).load(function($) {
 
   function updateEosData() {
     if (reqGlobal.readyState == 4 || reqGlobal.readyState == 0) {
-      reqGlobal.open("POST", "http://node1.eosphere.io:8888/v1/chain/get_table_rows");
+      reqGlobal.open("POST", "https://api.eosnewyork.io/v1/chain/get_table_rows");
       reqGlobal.onreadystatechange = handleResponseGlobal;
     }
 
@@ -35,12 +35,12 @@ jQuery(window).load(function($) {
     }
 
     if (reqRam.readyState == 4 || reqRam.readyState == 0) {
-      reqRam.open("POST", "http://node1.eosphere.io:8888/v1/chain/get_table_rows");
+      reqRam.open("POST", "https://api.eosnewyork.io/v1/chain/get_table_rows");
       reqRam.onreadystatechange = handleResponseRam;
     }
 
     if (reqBan.readyState == 4 || reqBan.readyState == 0) {
-      reqBan.open("POST", "http://node1.eosphere.io:8888/v1/chain/get_account");
+      reqBan.open("POST", "https://api.eosnewyork.io/v1/chain/get_account");
       reqBan.onreadystatechange = handleResponseBan;
     }
     reqGlobal.send(JSON.stringify({json:"true", code:"eosio", scope:"eosio", table:"global"}));

@@ -19,18 +19,16 @@ public class PostgresHelper {
 	private String strStatementNet;
 	private String strStatement;
 	private PreparedStatement prepStatement;
-	
-	protected PostgresHelper() {
-		strStatementRam = "INSERT INTO eosram (dt, peos, pusd) VALUES (?, ?, ?)";
-		strStatementCpu = "INSERT INTO eoscpu (dt, peos, pusd) VALUES (?, ?, ?)";
-		strStatementNet = "INSERT INTO eosnet (dt, peos, pusd) VALUES (?, ?, ?)";
-	}
-	
+
 	public PostgresHelper(String host, String dbName, String user, String pass) {
 		this.strHost = host;
 		this.strDbName = dbName;
 		this.strUser = user;
 		this.strPass = pass;
+		
+		strStatementRam = "INSERT INTO eosram (dt, peos, pusd) VALUES (?, ?, ?)";
+		strStatementCpu = "INSERT INTO eoscpu (dt, peos, pusd) VALUES (?, ?, ?)";
+		strStatementNet = "INSERT INTO eosnet (dt, peos, pusd) VALUES (?, ?, ?)";
 	}
 	
 	public boolean connect() throws SQLException, ClassNotFoundException {
@@ -49,7 +47,7 @@ public class PostgresHelper {
 		return this.conn.createStatement().executeQuery(query);
 	}
 	
-	public int insert(String table, Timestamp dt, double pusd, double peos) throws SQLException {
+	public int insert(String table, Timestamp _dt, double _eosPriceUsd, double _resourcePriceEos) throws SQLException {
 
 		switch (table) {
 		case "eosram":
@@ -66,9 +64,9 @@ public class PostgresHelper {
 			
 		}
 		prepStatement = conn.prepareStatement(strStatement);		
-		prepStatement.setTimestamp(1, dt);
-		prepStatement.setDouble(2, pusd);
-		prepStatement.setDouble(3, peos);
+		prepStatement.setTimestamp(1, _dt);
+		prepStatement.setDouble(2, (_resourcePriceEos * _eosPriceUsd));
+		prepStatement.setDouble(3, _resourcePriceEos);
 		
 		//~ DEBUG
 		//~ System.out.println(prepStatement.toString());
