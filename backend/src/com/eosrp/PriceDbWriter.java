@@ -52,7 +52,7 @@ public class PriceDbWriter {
 		
 		//~ Get request test ~//
 		HttpGetHelper getTest = new HttpGetHelper("http://google.com");
-		getTest.sendRequest();
+		System.out.println(getTest.sendRequest());
 
 	}
 

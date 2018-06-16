@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="/Users/andrewcoutts/Projects/eoshome/projects/erp/backend/lib/httpclient-4.5.5.jar"/>
 	<classpathentry kind="lib" path="/Users/andrewcoutts/Projects/eoshome/projects/erp/backend/lib/httpcore-4.4.9.jar"/>
 	<classpathentry kind="lib" path="/Users/andrewcoutts/Projects/eoshome/projects/erp/backend/lib/postgresql-42.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/andrewcoutts/Projects/eoshome/projects/erp/backend/lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
