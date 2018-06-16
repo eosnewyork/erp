@@ -449,6 +449,20 @@ h1#logo a {
 	text-indent: -9999px;
 	display: block;
 }
+#eosnylogo {
+  background: url(../images/eosny-logo.png) center no-repeat;
+  background-size: 60px 82px;
+  width: 60px;
+  height: 82px;
+  position: absolute;
+  right: 35px;
+  bottom: 12px;
+}
+#sourcecode {
+  position: absolute;
+  left: 35px;
+  bottom: 22px;
+}
 .numbers, h1, h2, h3, h4, h5, h6 {
 	line-height: 1.35;
 	color: #2b2b2b;
@@ -1097,6 +1111,9 @@ h3.panel-title {
 /* =8. Icons
 --------------------------------------------------------------------------------------------------------*/
 .social-list {
+  position: absolute;
+  bottom: 25px;
+  right: 105px;
 	padding-bottom: 15px;
 	padding-top: 10px;
 	margin: 0;
