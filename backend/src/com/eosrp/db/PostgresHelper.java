@@ -10,35 +10,38 @@ import java.sql.Timestamp;
 public class PostgresHelper {
 
 	private Connection conn;
-	private String host;
-	private String dbName;
-	private String user;
-	private String pass;
-	
-	private String statementRam = "INSERT INTO eosram (dt, peos, pusd) VALUES (?, ?, ?)";
-	private String statementCpu = "INSERT INTO eoscpu (dt, peos, pusd) VALUES (?, ?, ?)";
-	private String statementNet = "INSERT INTO eosnet (dt, peos, pusd) VALUES (?, ?, ?)";
-	private String statement;
+	private String strHost;
+	private String strDbName;
+	private String strUser;
+	private String strPass;
+	private String strStatementRam;
+	private String strStatementCpu;
+	private String strStatementNet;
+	private String strStatement;
 	private PreparedStatement prepStatement;
 	
-	protected PostgresHelper() {}
+	protected PostgresHelper() {
+		strStatementRam = "INSERT INTO eosram (dt, peos, pusd) VALUES (?, ?, ?)";
+		strStatementCpu = "INSERT INTO eoscpu (dt, peos, pusd) VALUES (?, ?, ?)";
+		strStatementNet = "INSERT INTO eosnet (dt, peos, pusd) VALUES (?, ?, ?)";
+	}
 	
 	public PostgresHelper(String host, String dbName, String user, String pass) {
-		this.host = host;
-		this.dbName = dbName;
-		this.user = user;
-		this.pass = pass;
+		this.strHost = host;
+		this.strDbName = dbName;
+		this.strUser = user;
+		this.strPass = pass;
 	}
 	
 	public boolean connect() throws SQLException, ClassNotFoundException {
-		if (host.isEmpty() || dbName.isEmpty() || user.isEmpty() || pass.isEmpty()) {
+		if (strHost.isEmpty() || strDbName.isEmpty() || strUser.isEmpty() || strPass.isEmpty()) {
 			throw new SQLException("Database credentials missing");
 		}
 		
 		Class.forName("org.postgresql.Driver");
 		this.conn = DriverManager.getConnection(
-				this.host + this.dbName,
-				this.user, this.pass);
+				this.strHost + this.strDbName,
+				this.strUser, this.strPass);
 		return true;
 	}
 	
@@ -50,24 +53,24 @@ public class PostgresHelper {
 
 		switch (table) {
 		case "eosram":
-			statement = statementRam;
+			strStatement = strStatementRam;
 			break;
 			
 		case "eoscpu":
-			statement = statementCpu;
+			strStatement = strStatementCpu;
 			break;
 			
 		case "eosnet":
-			statement = statementNet;
+			strStatement = strStatementNet;
 			break;
 			
 		}
-		prepStatement = conn.prepareStatement(statement);		
+		prepStatement = conn.prepareStatement(strStatement);		
 		prepStatement.setTimestamp(1, dt);
 		prepStatement.setDouble(2, pusd);
 		prepStatement.setDouble(3, peos);
 		
-		//~ DEBUG ~//
+		//~ DEBUG
 		//~ System.out.println(prepStatement.toString());
 		return prepStatement.executeUpdate();
 	}

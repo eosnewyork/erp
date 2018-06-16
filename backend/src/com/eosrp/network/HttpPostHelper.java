@@ -18,26 +18,26 @@ public class HttpPostHelper {
 	 * Return JSON of response
 	 */
 	
-	private String url;
-	private String returnResponse;
-	private JSONObject reqJson;
+	private String strUrl;
+	private String strReturnResponse;
+	private String strReqJson;
 	
 	
-	//~~ Constructor ~~/
-	public HttpPostHelper(String _url, JSONObject _reqJson) {
-		url = _url;
-		reqJson = _reqJson;
+	//~ Constructor
+	public HttpPostHelper(String _strUrl, String _strReqJson) {
+		strUrl = _strUrl;
+		strReqJson = _strReqJson;
 	}
 	
 	public String sendRequest() throws IOException {
-		//JSONObject json = new JSONObject();
-		//json.put("key1", "val1");
-		String respString;
+		//~ JSONObject json = new JSONObject();
+		//~ json.put("key1", "val1");
+		String strRespString;
 		
-		//System.out.println(json.get("key1"));
+		//~ System.out.println(json.get("key1"));
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpGet httpGet = new HttpGet(url);
+		HttpPost httpPost = new HttpPost(url);
 		CloseableHttpResponse response = httpclient.execute(httpGet);
 		
 		try {

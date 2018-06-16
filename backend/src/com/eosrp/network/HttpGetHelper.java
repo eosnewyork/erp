@@ -1,15 +1,12 @@
 package com.eosrp.network;
 
 import java.io.IOException;
-import java.util.Map;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.simple.JSONObject;
 
 public class HttpGetHelper {
 	
@@ -18,34 +15,32 @@ public class HttpGetHelper {
 	 * (<param1, val1>, <param2, val2>)
 	 */
 	
-	private String url;
-	private String returnResponse;
+	private String strUrl;
 	
-	//~~ Constructor ~~/
+	//~~ Constructor
 	public HttpGetHelper(String _url) {
-		url = _url;
+		strUrl = _url;
 	}
 	
 	public String sendRequest() throws IOException {
-		//JSONObject json = new JSONObject();
-		//json.put("key1", "val1");
-		String respString;
-		
-		//System.out.println(json.get("key1"));
+		String _strRespString;
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
-		HttpGet httpGet = new HttpGet(url);
+		HttpGet httpGet = new HttpGet(strUrl);
 		CloseableHttpResponse response = httpclient.execute(httpGet);
 		
 		try {
-		    System.out.println(response.getStatusLine());
+			//~ DEBUG
+		    //~ System.out.println(response.getStatusLine());
 		    HttpEntity respEntity = response.getEntity();
-		    respString = EntityUtils.toString(respEntity);
+		    _strRespString = EntityUtils.toString(respEntity);
 		    EntityUtils.consume(respEntity);
 		} finally {
 		    response.close();
 		}
-		return respString;
+		return _strRespString;
 	}
+	
+	
 
 }
