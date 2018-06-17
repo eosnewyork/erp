@@ -11,22 +11,24 @@ import com.eosrp.network.HttpPostHelper;
 public class EosResources {
 	
 	private String strUrlEosPriceUsd;
-	private String strUrlGetTableRows;
+	private String strUrlGetTable;
+	private String strUrlGetAccount;
 	
-	public EosResources(String _strUrlEosPriceUsd, String _strUrlGetTableRows) {
+	public EosResources(String _strUrlEosPriceUsd, String _strUrlGetTable, String _strUrlGetAccount) {
 		strUrlEosPriceUsd = _strUrlEosPriceUsd;
-		strUrlGetTableRows = _strUrlGetTableRows;
+		strUrlGetTable = _strUrlGetTable;
+		strUrlGetAccount = _strUrlGetAccount;
 	}
 
 	//~ Get the current price of CPU bandwidth in EOS/microseconds
-	public double getCpuMicSecPrice(String _url) throws IOException {
+	public double getCpuMicSecPrice() throws IOException {
 		Double cpuPriceEos;
 		
 		String strAccountInfoJson = "{\"account_name\":\"eosnewyorkio\"}";
 
 		//~ Instantiate the POST request object 
 		//~ and fetch latest price for CPU
-		HttpPostHelper postReq = new HttpPostHelper(_url, strAccountInfoJson);
+		HttpPostHelper postReq = new HttpPostHelper(strUrlGetAccount, strAccountInfoJson);
 		JSONObject jsonResp = postReq.sendRequest();
 
 		//~ We need to access 'total_resources' and 'cpu_limit' to get the balance values
@@ -45,20 +47,20 @@ public class EosResources {
 		//~ DEBUG
 		//~ System.out.println(strCpuWeight);
 		//~ System.out.println(dblNetCpuStaked);
-		//~ System.out.println(cpuPriceEos);
+		System.out.println("cpuPriceEos: " + cpuPriceEos);
 		
 		return cpuPriceEos;
 	}
 	
 	//~ Get the current price of Network bandwidth in EOS/bytes
-	public double getNetBandBytesPrice(String _url) throws IOException {
+	public double getNetBandBytesPrice() throws IOException {
 		Double netPriceEos;
 		
 		String strAccountInfoJson = "{\"account_name\":\"eosnewyorkio\"}";
 
 		//~ Instantiate the POST request object 
 		//~ and fetch latest price for CPU
-		HttpPostHelper postReq = new HttpPostHelper(_url, strAccountInfoJson);
+		HttpPostHelper postReq = new HttpPostHelper(strUrlGetAccount, strAccountInfoJson);
 		JSONObject jsonResp = postReq.sendRequest();
 
 		//~ We need to access 'total_resources' and 'net_limit' to get the balance values
@@ -77,7 +79,7 @@ public class EosResources {
 		//~ DEBUG
 		//~ System.out.println(strNetWeight);
 		//~ System.out.println(dblNetStaked);
-		//~ System.out.println(netPriceEos);
+		System.out.println("netPriceEos: " + netPriceEos);
 		
 		return netPriceEos;
 	}
@@ -85,7 +87,7 @@ public class EosResources {
 	//~ Get current price per byte (RAM/EOS) for next byte of RAM
 	//~ Note this does not include the price slippage or 0.5% fee
 	//~ Todo: use Bancor algorithm to calculate exact price of X bytes
-	public double getRamBytesPrice(String _url) throws IOException {
+	public double getRamBytesPrice() throws IOException {
 		Double ramPriceEos;
 
 		//~ This is from running the following command in cleos to get the JSON payload:
@@ -97,7 +99,7 @@ public class EosResources {
 
 		//~ Instantiate the POST request object 
 		//~ and fetch latest price for ram
-		HttpPostHelper postReq = new HttpPostHelper(_url, strRamMarketJson);
+		HttpPostHelper postReq = new HttpPostHelper(strUrlGetTable, strRamMarketJson);
 		JSONObject jsonResp = postReq.sendRequest();
 
 		//~ The JSON response looks like this:
@@ -120,24 +122,24 @@ public class EosResources {
 		Double dblQuoteBalance = Double.parseDouble(strTrimmedQuoteBalance);
 		Double dblBaseBalance = Double.parseDouble(strTrimmedBaseBalance);
 
-		//~ Finaly calculate the RAM/EOS price before returning it
+		//~ Finally calculate the RAM/EOS price before returning it
 		ramPriceEos = dblQuoteBalance / dblBaseBalance;
 
 		//~ DEBUG
 		//~ System.out.printf("Quote Balance: %f\n", dblQuoteBalance);
 		//~ System.out.printf("Base Balance: %f\n", dblBaseBalance);
-		//~ System.out.printf("Price: %.8f",  ramPriceEos);
+		System.out.println("ramPriceEos: " + ramPriceEos);
 
 		return ramPriceEos;
 	}
 	
 	//~ Get the current EOS/USD price from coinmarketcap's API
-	public double getEosPriceUsd(String _url) throws IOException {
+	public double getEosPriceUsd() throws IOException {
 		Double eosPriceUsd;
 
 		//~ Instantiate the GET request object 
 		//~ and fetch latest price for EOS/USD
-		HttpGetHelper getReq = new HttpGetHelper(_url);
+		HttpGetHelper getReq = new HttpGetHelper(strUrlEosPriceUsd);
 
 		//~ Capture request response JSON in a JSON object
 		JSONObject jsonResp = getReq.sendRequest();
@@ -149,7 +151,7 @@ public class EosResources {
 		eosPriceUsd = (Double) usd.get("price"); 
 
 		//~ DEBUG
-		//~ System.out.println(eosPriceUsd);
+		System.out.println("eosPriceUsd: " + eosPriceUsd);
 
 		return eosPriceUsd;
 	}

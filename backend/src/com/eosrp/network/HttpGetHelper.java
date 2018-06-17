@@ -31,7 +31,7 @@ public class HttpGetHelper {
 		
 		try {
 			//~ DEBUG
-		    //~ System.out.println(response.getStatusLine());
+		    System.out.println("GET | Url: " + strUrl + " | " + response.getStatusLine());
 		    HttpEntity respEntity = response.getEntity();
 		    strRespString = EntityUtils.toString(respEntity);
 		    EntityUtils.consume(respEntity);

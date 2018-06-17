@@ -41,7 +41,7 @@ public class HttpPostHelper {
 
 		try {
 			//~ DEBUG
-		    //~ System.out.println("POST Response Code: " + response.getStatusLine());
+		    System.out.println("POST | Url: " + strUrl + " | " + response.getStatusLine());
 		    HttpEntity respEntity = response.getEntity();
 		    _strRespString = EntityUtils.toString(respEntity);
 		    EntityUtils.consume(respEntity);

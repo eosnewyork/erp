@@ -44,7 +44,7 @@ public class PostgresHelper {
 		//~ System.out.printf("Table: %s,  dt: %s, _eosPriceUsd: %s, _resourcePriceEos: %s\n", _table, dt, _eosPriceUsd, _resourcePriceEos);
 		if (_client.insert(_table, dt, _eosPriceUsd, _resourcePriceEos) == 1) {
 			//~ DEBUG
-			//~ System.out.println("Record added");
+			System.out.println("DB record added successfully");
 			return true;
 		}
 		return false;
@@ -84,11 +84,11 @@ public class PostgresHelper {
 		}
 		prepStatement = conn.prepareStatement(strStatement);		
 		prepStatement.setTimestamp(1, _dt);
-		prepStatement.setDouble(2, (_resourcePriceEos * _eosPriceUsd));
-		prepStatement.setDouble(3, _resourcePriceEos);
+		prepStatement.setDouble(2, _resourcePriceEos);
+		prepStatement.setDouble(3, (_resourcePriceEos * _eosPriceUsd));
 		
 		//~ DEBUG
-		//~ System.out.println(prepStatement.toString());
+		System.out.println("Statement to execute: " + prepStatement.toString());
 		return prepStatement.executeUpdate();
 	}
 }

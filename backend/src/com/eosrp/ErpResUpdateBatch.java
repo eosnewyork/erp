@@ -5,6 +5,9 @@ import java.sql.SQLException;
 import com.eosrp.db.DbContract;
 import com.eosrp.db.PostgresHelper;
 import com.eosrp.resources.EosResources;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class ErpResUpdateBatch {	
 
@@ -28,16 +31,16 @@ public class ErpResUpdateBatch {
 		return client;
 	}
 
-	public static void storePrice(String _table, EosResources _eosRes, PostgresHelper _client, String _strUrlEosPriceUsd, String _strUrlGetTableRows) throws SQLException, IOException {
+	public static void storePrice(String _table, EosResources _eosRes, PostgresHelper _client) throws SQLException, IOException {
 		Boolean result;
-		
+
 		//~ DEBUG
 		//~ System.out.println(_table);
-		
+
 		switch (_table) {
 		case "eosram":
 			if (_client != null) {
-				result = _client.sendQuery("eosram", _eosRes.getEosPriceUsd(_strUrlEosPriceUsd), _client, _eosRes.getRamBytesPrice(_strUrlGetTableRows));
+				result = _client.sendQuery("eosram", _eosRes.getEosPriceUsd(), _client, _eosRes.getRamBytesPrice());
 				if (result == true) {
 					//~ DEBUG
 					//~ System.out.println("Successful query");
@@ -49,10 +52,10 @@ public class ErpResUpdateBatch {
 				}
 			}
 			break;
-			
+
 		case "eoscpu":
 			if (_client != null) {
-				result = _client.sendQuery("eoscpu", _eosRes.getEosPriceUsd(_strUrlEosPriceUsd), _client, _eosRes.getCpuMicSecPrice(_strUrlGetTableRows));
+				result = _client.sendQuery("eoscpu", _eosRes.getEosPriceUsd(), _client, _eosRes.getCpuMicSecPrice());
 				if (result == true) {
 					//~ DEBUG
 					//~ System.out.println("Successful query");
@@ -64,10 +67,10 @@ public class ErpResUpdateBatch {
 				}
 			}
 			break;
-			
+
 		case "eosnet":
 			if (_client != null) {
-				result = _client.sendQuery("eosnet", _eosRes.getEosPriceUsd(_strUrlEosPriceUsd), _client, _eosRes.getNetBandBytesPrice(_strUrlGetTableRows));
+				result = _client.sendQuery("eosnet", _eosRes.getEosPriceUsd(), _client, _eosRes.getNetBandBytesPrice());
 				if (result == true) {
 					//~ DEBUG
 					//~ System.out.println("Successful query");
@@ -80,7 +83,7 @@ public class ErpResUpdateBatch {
 			}
 			break;
 		}
-		
+
 
 
 		//~ Print the DB records
@@ -93,19 +96,44 @@ public class ErpResUpdateBatch {
 		}*/
 	}
 
-	public static void main(String[] args) throws SQLException, IOException {
+	public static void main(String[] args){
 		//~ Backup node: node1.eosphere.io:8888
-		String strUrlGetAccount = "http://api.eosnewyork.io/v1/chain/get_account";
 		String strUrlEosPriceUsd = "https://api.coinmarketcap.com/v2/ticker/1765";
 		String strUrlGetTableRows = "http://api.eosnewyork.io/v1/chain/get_table_rows";
+		String strUrlGetAccount = "http://api.eosnewyork.io/v1/chain/get_account";
 
 		//~ Instantiate objects
 		PostgresHelper client = initDatabase();
-		EosResources eosRes = new EosResources(strUrlEosPriceUsd, strUrlGetTableRows);
-
-		storePrice("eosram", eosRes, client, strUrlEosPriceUsd, strUrlGetTableRows);
-		storePrice("eoscpu", eosRes, client, strUrlEosPriceUsd, strUrlGetAccount);
-		storePrice("eosnet", eosRes, client, strUrlEosPriceUsd, strUrlGetAccount);
+		EosResources eosRes = new EosResources(strUrlEosPriceUsd, strUrlGetTableRows, strUrlGetAccount);
+		
+		System.out.println("Initialized objects, spawning task..");
+		
+		//~ Spawn a thread to run the storage/update procedures
+		Runnable runnable = new Runnable() {
+			public void run() {
+				System.out.println("Running task");
+				try {
+					storePrice("eosram", eosRes, client);
+					storePrice("eoscpu", eosRes, client);
+					storePrice("eosnet", eosRes, client);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		ScheduledExecutorService service = Executors
+				.newSingleThreadScheduledExecutor();
+		service.scheduleAtFixedRate(runnable, 0, 60, TimeUnit.SECONDS);
 	}
-
+	/*	try {
+			storePrice("eosram", eosRes, client);
+			storePrice("eoscpu", eosRes, client);
+			storePrice("eosnet", eosRes, client);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
 }
