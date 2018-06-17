@@ -23,7 +23,7 @@ public class HttpGetHelper {
 	//~ 
 	//~ Returns a JSON object of the response JSON
 	public JSONObject sendRequest() throws IOException {
-		String _strRespString;
+		String strRespString;
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(strUrl);
@@ -33,13 +33,13 @@ public class HttpGetHelper {
 			//~ DEBUG
 		    //~ System.out.println(response.getStatusLine());
 		    HttpEntity respEntity = response.getEntity();
-		    _strRespString = EntityUtils.toString(respEntity);
+		    strRespString = EntityUtils.toString(respEntity);
 		    EntityUtils.consume(respEntity);
 		} finally {
 		    response.close();
 		}
 		
-		return (JSONObject) JSONValue.parse(_strRespString);
+		return (JSONObject) JSONValue.parse(strRespString);
 	}
 	
 	
