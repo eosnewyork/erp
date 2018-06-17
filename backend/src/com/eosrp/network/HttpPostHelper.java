@@ -30,7 +30,7 @@ public class HttpPostHelper {
 	//~ 
 	//~ Returns a JSON object of the response JSON
 	public JSONObject sendRequest() throws IOException {
-		String strRespString;
+		String _strRespString;
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(strUrl);
@@ -43,13 +43,13 @@ public class HttpPostHelper {
 			//~ DEBUG
 		    //~ System.out.println("POST Response Code: " + response.getStatusLine());
 		    HttpEntity respEntity = response.getEntity();
-		    strRespString = EntityUtils.toString(respEntity);
+		    _strRespString = EntityUtils.toString(respEntity);
 		    EntityUtils.consume(respEntity);
 		} finally {
 		    response.close();
 		}
 		
-		return (JSONObject) JSONValue.parse(strRespString);
+		return (JSONObject) JSONValue.parse(_strRespString);
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.eosrp.db;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,14 +22,32 @@ public class PostgresHelper {
 	private PreparedStatement prepStatement;
 
 	public PostgresHelper(String host, String dbName, String user, String pass) {
-		this.strHost = host;
-		this.strDbName = dbName;
-		this.strUser = user;
-		this.strPass = pass;
+		strHost = host;
+		strDbName = dbName;
+		strUser = user;
+		strPass = pass;
 		
 		strStatementRam = "INSERT INTO eosram (dt, peos, pusd) VALUES (?, ?, ?)";
 		strStatementCpu = "INSERT INTO eoscpu (dt, peos, pusd) VALUES (?, ?, ?)";
 		strStatementNet = "INSERT INTO eosnet (dt, peos, pusd) VALUES (?, ?, ?)";
+	}
+	
+	//~ Generic method to insert into any table
+	public boolean sendQuery(String _table, Double _eosPriceUsd, PostgresHelper _client, Double _resourcePriceEos) throws SQLException, IOException {
+		//~ Get timestamp
+		java.util.Date date = new java.util.Date(System.currentTimeMillis());
+		java.sql.Timestamp dt = new java.sql.Timestamp(date.getTime());
+
+
+		//~ Attempt to insert record
+		//~ DEBUG
+		//~ System.out.printf("Table: %s,  dt: %s, _eosPriceUsd: %s, _resourcePriceEos: %s\n", _table, dt, _eosPriceUsd, _resourcePriceEos);
+		if (_client.insert(_table, dt, _eosPriceUsd, _resourcePriceEos) == 1) {
+			//~ DEBUG
+			//~ System.out.println("Record added");
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean connect() throws SQLException, ClassNotFoundException {
