@@ -25,7 +25,7 @@ jQuery(window).load(function($) {
 
   function updateEosData() {
     if (reqGlobal.readyState == 4 || reqGlobal.readyState == 0) {
-      reqGlobal.open("POST", "https://api.eosnewyork.io:/v1/chain/get_table_rows");
+      reqGlobal.open("POST", "https://api.eosnewyork.io/v1/chain/get_table_rows");
       reqGlobal.onreadystatechange = handleResponseGlobal;
     }
 
@@ -35,7 +35,7 @@ jQuery(window).load(function($) {
     }
 
     if (reqRam.readyState == 4 || reqRam.readyState == 0) {
-      reqRam.open("POST", "https://api.eosnewyork.io:/v1/chain/get_table_rows");
+      reqRam.open("POST", "https://api.eosnewyork.io/v1/chain/get_table_rows");
       reqRam.onreadystatechange = handleResponseRam;
     }
 
@@ -102,7 +102,6 @@ jQuery(window).load(function($) {
     ramBaseBalance = ramBaseBalance.substr(0,ramBaseBalance.indexOf(' '));
     var ramQuoteBalance = xDoc.rows[0].quote.balance; // Amount of EOS in the RAM collector
     ramQuoteBalance = ramQuoteBalance.substr(0,ramQuoteBalance.indexOf(' '));
-    var ramUsed = 1 - (ramBaseBalance - maxRam);
     ramPriceEos = ((ramQuoteBalance / ramBaseBalance) * 1024).toFixed(8); // Price in kb
 
     var target = document.getElementById("ram-price-eos");
@@ -111,6 +110,7 @@ jQuery(window).load(function($) {
     target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per Kb";
 
     /** coming soon
+    var ramUsed = 1 - (ramBaseBalance - maxRam);
     var target = document.getElementById("rampriceeos");
     target.innerHTML = ramPriceEos + " EOS";
     target = document.getElementById("rampriceusd");
