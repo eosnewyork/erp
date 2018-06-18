@@ -501,7 +501,8 @@ h4#headertitle {
   padding: 0 !important;
   margin: 0;
   display: block;
-  margin-left: -125px;
+  margin-left: 50px;
+  margin-top: 5px;
   top: 15px;
   float: left;
 }
