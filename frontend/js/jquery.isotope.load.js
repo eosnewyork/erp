@@ -105,9 +105,9 @@ jQuery(window).load(function($) {
     ramPriceEos = ((ramQuoteBalance / ramBaseBalance) * 1024).toFixed(8); // Price in kb
 
     var target = document.getElementById("ram-price-eos");
-    target.innerHTML = ramPriceEos + " EOS per Kb";
+    target.innerHTML = ramPriceEos + " EOS per KB";
     target = document.getElementById("ram-price-usd");
-    target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per Kb";
+    target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
 
     /** coming soon
     var ramUsed = 1 - (ramBaseBalance - maxRam);
@@ -119,7 +119,7 @@ jQuery(window).load(function($) {
     target = document.getElementById("ramusedb");
     target.innerHTML = ramUsed + " b";
     target = document.getElementById("ramusedkb");
-    target.innerHTML = (ramUsed/1024).toFixed(2) + " Kb";
+    target.innerHTML = (ramUsed/1024).toFixed(2) + " KB";
     target = document.getElementById("ramusedmb");
     target.innerHTML = (ramUsed/1024/1024).toFixed(2) + " Mb";
     target = document.getElementById("ramusedgb");
@@ -137,9 +137,9 @@ jQuery(window).load(function($) {
     var netStaked = xDoc.total_resources.net_weight.substr(0,xDoc.total_resources.net_weight.indexOf(' '));
     var netAvailable = xDoc.net_limit.max / 1024; // convert bytes to kilobytes
     netPriceEos = (netStaked / netAvailable).toFixed(8);
-    target.innerHTML = netPriceEos + " EOS per Kb";
+    target.innerHTML = netPriceEos + " EOS per KB";
     target = document.getElementById("net-price-usd");
-    target.innerHTML = "~ $" + (netPriceEos * eosPriceUsd).toFixed(3) + " USD per Kb";
+    target.innerHTML = "~ $" + (netPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
 
     target = document.getElementById("cpu-price-eos");
     var cpuStaked = xDoc.total_resources.cpu_weight.substr(0,xDoc.total_resources.cpu_weight.indexOf(' '));
@@ -241,10 +241,10 @@ $(function() {
         case "bytes":
         value = value * 1024;
         break;
-        case "Mb":
+        case "MB":
         value = value / 1024;
         break;
-        case "Gb":
+        case "GB":
         value = value / 1024 / 1024;
         break;
       }
@@ -261,10 +261,10 @@ $(function() {
         case "bytes":
         value = value * 1024;
         break;
-        case "Mb":
+        case "MB":
         value = value / 1024;
         break;
-        case "Gb":
+        case "GB":
         value = value / 1024 / 1024;
         break;
       }
@@ -294,12 +294,12 @@ $(function() {
       value = document.getElementById("eos-cost-ram").value;
       unitTarget = document.getElementById("ram-cost-unit");
       unitTargetValue = unitTarget.options[unitTarget.selectedIndex].text;
-      if (unitTargetValue != "Kb") {
+      if (unitTargetValue != "KB") {
         if (unitTargetValue == "bytes") {
           value = value / 1024;
-        } else if (unitTargetValue == "Mb") {
+        } else if (unitTargetValue == "MB") {
           value = value * 1024;
-        } else if (unitTargetValue == "Gb") {
+        } else if (unitTargetValue == "GB") {
           value = value * 1024 * 1024;
         }
       }
@@ -312,12 +312,12 @@ $(function() {
       value = document.getElementById("eos-cost-net").value;
       unitTarget = document.getElementById("net-cost-unit");
       unitTargetValue = unitTarget.options[unitTarget.selectedIndex].text;
-      if (unitTargetValue != "Kb") {
+      if (unitTargetValue != "KB") {
         if (unitTargetValue == "bytes") {
           value = value / 1024;
-        } else if (unitTargetValue == "Mb") {
+        } else if (unitTargetValue == "MB") {
           value = value * 1024;
-        } else if (unitTargetValue == "Gb") {
+        } else if (unitTargetValue == "GB") {
           value = value * 1024 * 1024;
         }
       }
