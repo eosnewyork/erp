@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+  pre_build:
+    commands:
+  build:
+    commands:
+  post_build:
+    commands:
+      - echo about to sync to S3 
+      - aws s3 sync .source/frontend "s3://${BUCKET_NAME}" --delete
+      - echo after sync to S3 
+artifacts:
+  files:
+    - '**/*'
