@@ -438,7 +438,7 @@ h1#logo {
 	margin: 0;
 	display: block;
 	margin-left: 35px;
-	top: -2px;
+	top: -3px;
 	float: left;
 }
 h1#logo a {
@@ -1490,6 +1490,11 @@ ul.pagination li a.active:hover {
 --------------------------------------------------------------------------------------------------------*/
 .col {
   display: inline-block;
+}
+
+#headeralert {
+  margin-top: 20px;
+  margin-bottom: -36px;
 }
 /* =End Custom
 --------------------------------------------------------------------------------------------------------*/
