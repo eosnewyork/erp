@@ -152,7 +152,9 @@ h3.panel-title {
 	padding-bottom: 0px;
 }
 h1#logo {
-	margin-left: 25px;
+	margin-left: 10px;
+	background-size: 164px 63px;
+	top: -6px;
 }
 header #eos-price-usd {
 	right: 30px;
@@ -167,5 +169,18 @@ header #eos-price-usd {
 }
 #sourcecode {
 	left: 0px;
+}
+h3 {
+	font-size: 23px;
+}
+h4 {
+	font-size: 20px;
+}
+}
+
+/*Legacy extra-small devices (old phones):*/
+@media only screen and (max-width: 365px) {
+header #eos-price-usd {
+	top: 72px;
 }
 }
