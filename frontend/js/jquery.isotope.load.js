@@ -22,6 +22,7 @@ jQuery(window).load(function($) {
   var reqBan = getXmlHttpRequestObject();
   var reqGlobal = getXmlHttpRequestObject();
   var maxRam;
+  var allocatedRam;
 
   function updateEosData() {
     if (reqGlobal.readyState == 4 || reqGlobal.readyState == 0) {
@@ -82,6 +83,7 @@ jQuery(window).load(function($) {
     return
 
     maxRam = xDoc.rows[0].max_ram_size;
+    allocatedRam = xDoc.rows[0].total_ram_bytes_reserved;
   }
 
   function parseStateEos(xDoc){
@@ -109,24 +111,21 @@ jQuery(window).load(function($) {
     target = document.getElementById("ram-price-usd");
     target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
 
-    /** coming soon
     var ramUsed = 1 - (ramBaseBalance - maxRam);
-    var target = document.getElementById("rampriceeos");
-    target.innerHTML = ramPriceEos + " EOS";
-    target = document.getElementById("rampriceusd");
-    target.innerHTML = "$" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD";
+    target = document.getElementById("maxRam");
+    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
 
-    target = document.getElementById("ramusedb");
-    target.innerHTML = ramUsed + " b";
-    target = document.getElementById("ramusedkb");
-    target.innerHTML = (ramUsed/1024).toFixed(2) + " KB";
-    target = document.getElementById("ramusedmb");
-    target.innerHTML = (ramUsed/1024/1024).toFixed(2) + " Mb";
-    target = document.getElementById("ramusedgb");
-    target.innerHTML = (ramUsed/1024/1024/1024).toFixed(2) + " Gb";
-    target = document.getElementById("ramutilization");
-    target.innerHTML = ((ramUsed / maxRam) * 100).toFixed(2) + " %";
-    **/
+    target = document.getElementById("allocatedRam");
+    target.innerHTML = (ramUsed / 1024 / 1024 / 1024).toFixed(2) + " GB";
+
+    var ramUtilization = (ramUsed / maxRam) * 100;
+    target = document.getElementById("utilizedRam");
+    target.innerHTML = ramUtilization.toFixed(2) + " %";
+
+    target = document.getElementById("ramUtilVal");
+    target.innerHTML = ramUtilization.toFixed(2) + "%";
+    target = document.getElementById("ramUtilBar");
+    target.style.width = ramUtilization.toFixed(2) + "%";
   }
 
   function parseStateBan(xDoc){
