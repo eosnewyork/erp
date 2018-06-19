@@ -1491,5 +1491,10 @@ ul.pagination li a.active:hover {
 .col {
   display: inline-block;
 }
+
+#headeralert {
+  margin-top: 20px;
+  margin-bottom: -36px;
+}
 /* =End Custom
 --------------------------------------------------------------------------------------------------------*/
