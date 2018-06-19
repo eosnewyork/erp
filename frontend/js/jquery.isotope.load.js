@@ -22,6 +22,7 @@ jQuery(window).load(function($) {
   var reqBan = getXmlHttpRequestObject();
   var reqGlobal = getXmlHttpRequestObject();
   var maxRam;
+  var allocatedRam;
 
   function updateEosData() {
     if (reqGlobal.readyState == 4 || reqGlobal.readyState == 0) {
@@ -82,6 +83,7 @@ jQuery(window).load(function($) {
     return
 
     maxRam = xDoc.rows[0].max_ram_size;
+    allocatedRam = xDoc.rows[0].total_ram_bytes_reserved;
   }
 
   function parseStateEos(xDoc){
@@ -109,24 +111,21 @@ jQuery(window).load(function($) {
     target = document.getElementById("ram-price-usd");
     target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
 
-    /** coming soon
     var ramUsed = 1 - (ramBaseBalance - maxRam);
-    var target = document.getElementById("rampriceeos");
-    target.innerHTML = ramPriceEos + " EOS";
-    target = document.getElementById("rampriceusd");
-    target.innerHTML = "$" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD";
+    target = document.getElementById("maxRam");
+    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
 
-    target = document.getElementById("ramusedb");
-    target.innerHTML = ramUsed + " b";
-    target = document.getElementById("ramusedkb");
-    target.innerHTML = (ramUsed/1024).toFixed(2) + " KB";
-    target = document.getElementById("ramusedmb");
-    target.innerHTML = (ramUsed/1024/1024).toFixed(2) + " Mb";
-    target = document.getElementById("ramusedgb");
-    target.innerHTML = (ramUsed/1024/1024/1024).toFixed(2) + " Gb";
-    target = document.getElementById("ramutilization");
-    target.innerHTML = ((ramUsed / maxRam) * 100).toFixed(2) + " %";
-    **/
+    target = document.getElementById("allocatedRam");
+    target.innerHTML = (ramUsed / 1024 / 1024 / 1024).toFixed(2) + " GB";
+
+    var ramUtilization = (ramUsed / maxRam) * 100;
+    target = document.getElementById("utilizedRam");
+    target.innerHTML = ramUtilization.toFixed(2) + " %";
+
+    target = document.getElementById("ramUtilVal");
+    target.innerHTML = ramUtilization.toFixed(2) + "%";
+    target = document.getElementById("ramUtilBar");
+    target.style.width = ramUtilization.toFixed(2) + "%";
   }
 
   function parseStateBan(xDoc){
@@ -136,18 +135,18 @@ jQuery(window).load(function($) {
     var target = document.getElementById("net-price-eos");
     var netStaked = xDoc.total_resources.net_weight.substr(0,xDoc.total_resources.net_weight.indexOf(' '));
     var netAvailable = xDoc.net_limit.max / 1024; // convert bytes to kilobytes
-    netPriceEos = (netStaked / netAvailable).toFixed(8);
-    target.innerHTML = netPriceEos + " EOS per KB";
+    netPriceEos = ((netStaked / netAvailable)/3).toFixed(8);
+    target.innerHTML = netPriceEos + " EOS/KB/Day";
     target = document.getElementById("net-price-usd");
-    target.innerHTML = "~ $" + (netPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
+    target.innerHTML = "~ $" + ((netPriceEos * eosPriceUsd)/3).toFixed(3) + " USD/KB/Day";
 
     target = document.getElementById("cpu-price-eos");
     var cpuStaked = xDoc.total_resources.cpu_weight.substr(0,xDoc.total_resources.cpu_weight.indexOf(' '));
     var cpuAvailable = xDoc.cpu_limit.max / 1000; // convert microseconds to milliseconds
-    cpuPriceEos = (cpuStaked / cpuAvailable).toFixed(8);
-    target.innerHTML = cpuPriceEos + " EOS per ms";
+    cpuPriceEos = ((cpuStaked / cpuAvailable)/3).toFixed(8);
+    target.innerHTML = cpuPriceEos + " EOS/ms/Day";
     target = document.getElementById("cpu-price-usd");
-    target.innerHTML = "~ $" + (cpuPriceEos * eosPriceUsd).toFixed(3) + " USD per ms";
+    target.innerHTML = "~ $" + ((cpuPriceEos * eosPriceUsd)/3).toFixed(3) + " USD/ms/Day";
   }
   /* --- End of EOS data routines --- */
 

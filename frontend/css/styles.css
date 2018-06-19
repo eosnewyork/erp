@@ -777,7 +777,7 @@ section.same-color-as-previous-section {
 }
 .tile-4 {
 	width: 580px;
-	height: 280px;
+	height: 300px;
 	padding: 30px 35px 20px 35px;
 }
 .element.bg-change {
@@ -1232,6 +1232,10 @@ header .social-list li {
 	background: url(../images/icons/futuro_icons_253.png) center no-repeat;
 	background-size: 42px 42px;
 }
+.futuro_icons_346 {
+	background: url(../images/icons/futuro_icons_346.png) center no-repeat;
+	background-size: 42px 42px;
+}
 .icons {
 	position: relative;
 	height: 42px;
@@ -1495,6 +1499,11 @@ ul.pagination li a.active:hover {
 #headeralert {
   margin-top: 20px;
   margin-bottom: -36px;
+}
+
+.hint {
+  font-size: 13px;
+  font-style: italic;
 }
 /* =End Custom
 --------------------------------------------------------------------------------------------------------*/
