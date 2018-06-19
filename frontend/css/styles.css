@@ -1500,5 +1500,10 @@ ul.pagination li a.active:hover {
   margin-top: 20px;
   margin-bottom: -36px;
 }
+
+.hint {
+  font-size: 13px;
+  font-style: italic;
+}
 /* =End Custom
 --------------------------------------------------------------------------------------------------------*/

@@ -135,18 +135,18 @@ jQuery(window).load(function($) {
     var target = document.getElementById("net-price-eos");
     var netStaked = xDoc.total_resources.net_weight.substr(0,xDoc.total_resources.net_weight.indexOf(' '));
     var netAvailable = xDoc.net_limit.max / 1024; // convert bytes to kilobytes
-    netPriceEos = (netStaked / netAvailable).toFixed(8);
-    target.innerHTML = netPriceEos + " EOS per KB";
+    netPriceEos = ((netStaked / netAvailable)/3).toFixed(8);
+    target.innerHTML = netPriceEos + " EOS/KB/Day";
     target = document.getElementById("net-price-usd");
-    target.innerHTML = "~ $" + (netPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
+    target.innerHTML = "~ $" + ((netPriceEos * eosPriceUsd)/3).toFixed(3) + " USD/KB/Day";
 
     target = document.getElementById("cpu-price-eos");
     var cpuStaked = xDoc.total_resources.cpu_weight.substr(0,xDoc.total_resources.cpu_weight.indexOf(' '));
     var cpuAvailable = xDoc.cpu_limit.max / 1000; // convert microseconds to milliseconds
-    cpuPriceEos = (cpuStaked / cpuAvailable).toFixed(8);
-    target.innerHTML = cpuPriceEos + " EOS per ms";
+    cpuPriceEos = ((cpuStaked / cpuAvailable)/3).toFixed(8);
+    target.innerHTML = cpuPriceEos + " EOS/ms/Day";
     target = document.getElementById("cpu-price-usd");
-    target.innerHTML = "~ $" + (cpuPriceEos * eosPriceUsd).toFixed(3) + " USD per ms";
+    target.innerHTML = "~ $" + ((cpuPriceEos * eosPriceUsd)/3).toFixed(3) + " USD/ms/Day";
   }
   /* --- End of EOS data routines --- */
 
