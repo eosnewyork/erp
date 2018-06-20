@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>EOS Resource Planner.</title>
+    <title>EOS Resource Planner</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Andrew Coutts">
     <meta name="Description" content="ERP is a free and open-source tool to display the current price for EOSIO network storage and bandwidth resources.">
@@ -59,27 +59,27 @@
     <!-- end preloader -->
 
     <div id="wrap">
-      <!-- <div id="menu-button">
+      <div id="menu-button">
         <div class="centralizer">
           <div class="cursor">
             <div id="nav-button"> <span class="nav-bar"></span> <span class="nav-bar"></span> <span class="nav-bar"></span> </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!-- start header -->
       <header id="header" class="clearfix">
         <h1 id="logo"><a href="index.html">EOS Resource Planner</a></h1>
         <!-- start main nav -->
         <h4 id="headertitle">EOS Resource Planner</h4>
-        <!-- <nav id="main-nav">
+        <nav id="main-nav">
           <ul class="clearfix" id="options">
-            <li> <a href="#home">Home</a></li>
-            coming soon <li> <a href="#calculator">Cost Calculator</a></li>
-            coming soon <li> <a href="#faq">FAQ</a> </li>
-            coming soon <li> <a href="#about">About</a> </li>
+            <li> <a href="#">Overview</a></li>
+            <li> <a href="#calc">Calculator</a></li>
+            <!-- coming soon <li> <a href="#faq">FAQ</a> </li>
+            coming soon <li> <a href="#about">About</a> </li> -->
           </ul>
-        </nav> -->
+        </nav>
 
         <!-- end main nav -->
         <p id="eos-price-usd"></p>
@@ -89,38 +89,59 @@
       <!-- start content -->
       <div id="content">
         <div class="container clearfix">
+          <!-- GLOBAL ALERT BANNER -->
           <div class="alert alert-info" id="headeralert" role="alert">
             <center><strong>Heads Up!</strong> We are currently working to ensure the best available data and will have the service updated shortly.</center>
           </div>
+          <!-- END GLOBAL ALERT BANNER -->
+
+          <!-- ITEMS PERSISTED ON ALL PAGES -->
           <h4 id="headertitle-inner">EOS Resource Planner</h4>
           <div id="container">
-            <div class="element tile-1 home faq bg-change">
-            <!-- <p class="small">Storage: RAM (KB)</p> -->
+            <div class="element tile-1 home calc bg-change">
               <h4 class="header icon-to-the-right">Current RAM Price</h4>
               <p id="ram-price-eos"></p>
               <p id="ram-price-usd"></p>
-              <p class="hint">Cost to store 1 KB of data in RAM</p>
+              <p class="hint">Cost to persist 1 KB of data in RAM</p>
               <div class="icons futuro_icons_253 absolute-top-right"></div>
             </div>
-            <div class="element tile-1 home faq bg-change">
-              <!-- <p class="small">Bandwidth: Network (KB)</p> -->
+            <div class="element tile-1 home calc bg-change">
               <h4 class="header icon-to-the-right">Current Network Price</h4>
               <p id="net-price-eos"></p>
               <p id="net-price-usd"></p>
-              <p class="hint">Cost to reserve 1 KB/Day Avg Network Bandwidth</p>
+              <p class="hint">Cost to reserve 1 KB/Day Network Bandwidth</p>
               <div class="icons futuro_icons_143 absolute-top-right"></div>
             </div>
-            <div class="element tile-1 home faq bg-change">
-              <!-- <p class="small">Bandwidth: CPU (Ms)</p> -->
+            <div class="element tile-1 home calc bg-change">
               <h4 class="header icon-to-the-right">Current CPU Price</h4>
               <p id="cpu-price-eos"></p>
               <p id="cpu-price-usd"></p>
-              <p class="hint">Cost to reserve 1 MS/Day Avg CPU Bandwidth</p>
+              <p class="hint">Cost to reserve 1 MS/Day CPU Bandwidth</p>
               <div class="icons futuro_icons_186 absolute-top-right"></div>
             </div>
+            <!-- END PERSISTED ITEMS -->
+
+            <!-- LANDING PAGE ITEMS -->
+            <div class="element tile-5 home bg-change">
+              <p class="small">Introduction</p>
+              <div>
+                <h4 class="header icon-to-the-right">What is RAM?</h4>
+                <p>RAM is required to store data on the blockchain and must be purchased. You get a set number of bytes of storage based on the current RAM market price. The price automatically adjust up and down with buying and selling action. When you release storage you can sell RAM back to recover EOS at the current ram market price.</p>
+              </div>
+              <div>
+                <h4 class="header icon-to-the-right">What is Network Bandwidth?</h4>
+                <p>Network Bandwidth is measured as your average consumption in bytes over the last 3 days. Net bandwidth is temporarily consumed every time you send an action or transaction but decreases over time returning to 0. The more tokens you stake for net bandwidth the more you get to use. You can unstake at any time to reclaim your EOS tokens.</p>
+              </div>
+              <div>
+                <h4 class="header icon-to-the-right">What is CPU Bandwidth?</h4>
+                <p>CPU Bandwidth is measured as your average consumption in microseconds over the last 3 days. CPU bandwidth is temporarily consumed when you send an action or transaction but decreases over time returning to 0. The longer your transaction runs, the more CPU bandwidth it will consume. You can unstake at any time  to reclaim your EOS tokens.</p>
+              </div>
+              <div class="icons futuro_icons_285 absolute-top-right"></div>
+            </div>
             <div class="element tile-4 home bg-change">
-              <p class="small">Block Producer Statistics</p>
-              <h4 class="header icon-to-the-right">RAM Utilization</h4>
+              <p class="small">Network Statistics</p>
+              <h4 class="header icon-to-the-right">Overall RAM Utilization</h4>
+              <p class="hint">This is the total amount of RAM that is being utilized across the network with relation to the total capacity Block Producers have available today.</p>
               <div>
                 <p class="col">Total Available: </p>
                 <p class="col" id="maxRam">0.00 GB</p>
@@ -143,21 +164,42 @@
               </div>
               <div class="icons futuro_icons_346 absolute-top-right"></div>
             </div>
-            <div class="element tile-2 home bg-change">
+            <!-- END LANDING PAGE ITEMS -->
+
+            <!-- CALCULATE PAGE ITEMS -->
+            <div class="element tile-2 calc bg-change">
               <p class="small">What can I afford?</p>
               <div class="convert">
                 <h3 class="header">I currently have:</h3>
                 <div>
                   <p class="col"><input name="eos-afford-ram" type="text" class="calc-change" id="eos-afford-ram" size="11" title="0.00000000" /></p>
-                  <p class="col"> EOS available for RAM</p>
+                  <p class="col">
+                    <select size="1" class="calc-change" id="ram-have-unit">
+                      <option value="eos">EOS</option>
+                      <option value="usd">USD</option>
+                    </select>
+                  </p>
+                  <p class="col"> available for RAM</p>
                 </div>
                 <div>
                   <p class="col"><input name="eos-afford-net" type="text" class="calc-change" id="eos-afford-net" size="11" title="0.00000000" /></p>
-                  <p class="col"> EOS available for Net</p>
+                  <p class="col">
+                    <select size="1" class="calc-change" id="net-have-unit">
+                      <option value="eos">EOS</option>
+                      <option value="usd">USD</option>
+                    </select>
+                  </p>
+                  <p class="col"> available for Net</p>
                 </div>
                 <div>
                   <p class="col"><input name="eos-afford-cpu" type="text" class="calc-change" id="eos-afford-cpu" size="11" title="0.00000000" /></p>
-                  <p class="col"> EOS available for CPU</p>
+                  <p class="col">
+                    <select size="1" class="calc-change" id="cpu-have-unit">
+                      <option value="eos">EOS</option>
+                      <option value="usd">USD</option>
+                    </select>
+                  </p>
+                  <p class="col"> available for CPU</p>
                 </div>
                 <!-- <input type="submit" value="calculate-afford" id="calculate-afford" name="Calculate" /> -->
                 <br>
@@ -179,10 +221,10 @@
                   <p class="col" id="result-afford-net">0</p>
                   <p class="col">
                     <select size="1" class="calc-change" id="net-afford-unit">
-                      <option value="net-cost-bytes">bytes</option>
-                      <option value="net-cost-kilobytes">KB</option>
-                      <option value="net-costmegabytes">MB</option>
-                      <option value="net-cost-gigabytes">GB</option>
+                      <option value="net-cost-bytes">bytes / day</option>
+                      <option value="net-cost-kilobytes">KB / day</option>
+                      <option value="net-costmegabytes">MB / day</option>
+                      <option value="net-cost-gigabytes">GB / day</option>
                     </select>
                   </p>
                   <p class="col"> of Network Bandwidth</p>
@@ -191,23 +233,23 @@
                   <p class="col" id="result-afford-cpu">0</p>
                   <p class="col">
                     <select size="1" class="calc-change" id="cpu-afford-unit">
-                      <option value="microseconds">µs</option>
-                      <option value="milliseconds">ms</option>
-                      <option value="seconds">s</option>
+                      <option value="microseconds">µs / day</option>
+                      <option value="milliseconds">ms / day</option>
+                      <option value="seconds">s / day</option>
                     </select>
                   </p>
                   <p class="col"> of CPU Bandwidth</p>
                 </div>
               </div>
             </div>
-            <div class="element tile-2 home bg-change">
+            <div class="element tile-2 calc bg-change">
               <p class="small">What will it cost?</p>
               <div class="convert">
                 <h3 class="header">I need to buy:</h3>
                 <div>
                   <p class="col"><input name="eos-cost-ram" type="text" class="calc-change" id="eos-cost-ram" size="11" title="0" /></p>
                   <p class="col">
-                    <select size="1" class="calc-change" id="ram-cost-unit">
+                    <select size="1" class="calc-change" id="ram-need-unit">
                       <option value="ram-cost-bytes">bytes</option>
                       <option value="ram-cost-kilobytes">KB</option>
                       <option value="ram-cost-megabytes">MB</option>
@@ -219,11 +261,11 @@
                 <div>
                   <p class="col"><input name="eos-cost-net" type="text" class="calc-change" id="eos-cost-net" size="11" title="0" /></p>
                   <p class="col">
-                    <select size="1" class="calc-change" id="net-cost-unit">
-                      <option value="net-cost-bytes">bytes</option>
-                      <option value="net-cost-kilobytes">KB</option>
-                      <option value="net-costmegabytes">MB</option>
-                      <option value="net-cost-gigabytes">GB</option>
+                    <select size="1" class="calc-change" id="net-need-unit">
+                      <option value="net-cost-bytes">bytes / day</option>
+                      <option value="net-cost-kilobytes">KB / day</option>
+                      <option value="net-costmegabytes">MB / day</option>
+                      <option value="net-cost-gigabytes">GB / day</option>
                     </select>
                   </p>
                   <p class="col"> of Network Bandwidth</p>
@@ -231,10 +273,10 @@
                 <div>
                   <p class="col"><input name="eos-cost-cpu" type="text" class="calc-change" id="eos-cost-cpu" size="11" title="0" /></p>
                   <p class="col">
-                    <select size="1" class="calc-change" id="cpu-cost-unit">
-                      <option value="microseconds">µs</option>
-                      <option value="milliseconds">ms</option>
-                      <option value="seconds">s</option>
+                    <select size="1" class="calc-change" id="cpu-need-unit">
+                      <option value="microseconds">µs / day</option>
+                      <option value="milliseconds">ms / day</option>
+                      <option value="seconds">s / day</option>
                     </select>
                   </p>
                   <p class="col"> of CPU Bandwidth</p>
@@ -245,18 +287,37 @@
                 <h3 class="header">It will cost:</h3>
                 <div>
                   <p class="col" id="result-cost-ram">0.00000000</p>
-                  <p class="col"> EOS for RAM</p>
+                  <p class="col">
+                    <select size="1" class="calc-change" id="ram-cost-unit">
+                      <option value="eos">EOS</option>
+                      <option value="usd">USD</option>
+                    </select>
+                  </p>
+                  <p class="col"> for RAM</p>
                 </div>
                 <div>
                   <p class="col" id="result-cost-net">0.00000000</p>
-                  <p class="col"> EOS for Network Bandwidth</p>
+                  <p class="col">
+                    <select size="1" class="calc-change" id="net-cost-unit">
+                      <option value="eos">EOS</option>
+                      <option value="usd">USD</option>
+                    </select>
+                  </p>
+                  <p class="col"> for Net Bandwidth</p>
                 </div>
                 <div>
                   <p class="col" id="result-cost-cpu">0.00000000</p>
-                  <p class="col"> EOS for CPU Bandwidth</p>
+                  <p class="col">
+                    <select size="1" class="calc-change" id="cpu-cost-unit">
+                      <option value="eos">EOS</option>
+                      <option value="usd">USD</option>
+                    </select>
+                  </p>
+                  <p class="col"> for CPU Bandwidth</p>
                 </div>
               </div>
             </div>
+            <!-- END CALCULATE PAGE ITEMS -->
           </div>
         </div>
       </div>

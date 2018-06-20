@@ -95,7 +95,7 @@ bottom: 51px
 	width: 50%;
 }
 .tile-1 {
-	height: 212px;
+	height: 214px;
 }
 .tile-2 {
 	width: 280px;
@@ -105,6 +105,9 @@ bottom: 51px
 .tile-4 {
 	width: 280px;
 	height: auto;
+}
+.tile-5 {
+	height: 1190px;
 }
 .element, .image-overlay {
 	width: 300px !important;
@@ -178,7 +181,10 @@ h3 {
 	font-size: 23px;
 }
 h4 {
-	font-size: 20px;
+	font-size: 16px;
+}
+.tile-5 {
+	height: 1150px;
 }
 }
 

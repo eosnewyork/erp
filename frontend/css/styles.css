@@ -777,7 +777,12 @@ section.same-color-as-previous-section {
 }
 .tile-4 {
 	width: 580px;
-	height: 300px;
+	height: 340px;
+	padding: 30px 35px 20px 35px;
+}
+.tile-5 {
+	width: 580px;
+	height: 640px;
 	padding: 30px 35px 20px 35px;
 }
 .element.bg-change {
@@ -1234,6 +1239,10 @@ header .social-list li {
 }
 .futuro_icons_346 {
 	background: url(../images/icons/futuro_icons_346.png) center no-repeat;
+	background-size: 42px 42px;
+}
+.futuro_icons_285 {
+	background: url(../images/icons/futuro_icons_285.png) center no-repeat;
 	background-size: 42px 42px;
 }
 .icons {
