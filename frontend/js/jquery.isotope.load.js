@@ -356,8 +356,8 @@ $(function() {
         if (currencyValue == "EOS") { value = (value*ramPriceEos) * 1024; break; }
         break;
         case "GB":
-        if (currencyValue == "USD") { value = (value*ramPriceUsd) * 1024 / 1024; break; }
-        if (currencyValue == "EOS") { value = (value*ramPriceEos) * 1024 / 1024; break; }
+        if (currencyValue == "USD") { value = (value*ramPriceUsd) * 1024 * 1024; break; }
+        if (currencyValue == "EOS") { value = (value*ramPriceEos) * 1024 * 1024; break; }
         break;
       }
 
@@ -388,8 +388,8 @@ $(function() {
         if (currencyValue == "EOS") { value = (value*netPriceEos) * 1024; break; }
         break;
         case "GB / day":
-        if (currencyValue == "USD") { value = (value*netPriceUsd) * 1024 / 1024; break; }
-        if (currencyValue == "EOS") { value = (value*netPriceEos) * 1024 / 1024; break; }
+        if (currencyValue == "USD") { value = (value*netPriceUsd) * 1024 * 1024; break; }
+        if (currencyValue == "EOS") { value = (value*netPriceEos) * 1024 * 1024; break; }
         break;
       }
 
@@ -409,15 +409,15 @@ $(function() {
       value = document.getElementById("eos-cost-cpu").value;
       switch (unitTargetValue) {
         case "µs / day":
-        if (currencyValue == "USD") { value = (value*cpuPriceUsd) / 1024; break; }
-        if (currencyValue == "EOS") { value = (value*cpuPriceEos) / 1024; break; }
+        if (currencyValue == "USD") { value = (value*cpuPriceUsd) / 1000; break; }
+        if (currencyValue == "EOS") { value = (value*cpuPriceEos) / 1000; break; }
         case "ms / day":
         if (currencyValue == "USD") { value = (value*cpuPriceUsd); break; }
         if (currencyValue == "EOS") { value = (value*cpuPriceEos); break; }
         break;
         case "s / day":
-        if (currencyValue == "USD") { value = (value*cpuPriceUsd) * 1024; break; }
-        if (currencyValue == "EOS") { value = (value*cpuPriceEos) * 1024; break; }
+        if (currencyValue == "USD") { value = (value*cpuPriceUsd) * 1000; break; }
+        if (currencyValue == "EOS") { value = (value*cpuPriceEos) * 1000; break; }
         break;
       }
 
