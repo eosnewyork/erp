@@ -1,0 +1,35 @@
+{
+  "name": "nodejs-todolist",
+  "version": "1.0.0",
+  "description": "A simple todo-list using NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acoutts/erp.git"
+  },
+  "keywords": [
+    "eosio",
+    "eos",
+    "backend",
+    "eosrp"
+  ],
+  "author": "Andrew Coutts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acoutts/erp/issues"
+  },
+  "homepage": "https://github.com/acoutts/erp#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "massive": "^5.0.0",
+    "morgan": "^1.9.0"
+  }
+}
