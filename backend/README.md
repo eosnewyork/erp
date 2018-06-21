@@ -52,6 +52,6 @@ server: {
 
 ## Starting the API
 
-``bash
+```bash
 npm run start:dev
 ```
