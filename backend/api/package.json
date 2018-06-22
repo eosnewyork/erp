@@ -1,0 +1,36 @@
+{
+  "name": "eosrp-backend-api",
+  "version": "0.1.0",
+  "description": "A backend API for the EOS Resource Planner that is used to query and display charting data to the frontend",
+  "main": "server.js",
+  "scripts": {
+    "start:dev": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acoutts/erp.git"
+  },
+  "keywords": [
+    "eosio",
+    "eos",
+    "backend",
+    "eosrp"
+  ],
+  "author": "Andrew Coutts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acoutts/erp/issues"
+  },
+  "homepage": "https://github.com/acoutts/erp/backend#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "massive": "^5.0.0",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.0"
+  }
+}
