@@ -24,8 +24,6 @@ jQuery(window).load(function($) {
   var reqRam = getXmlHttpRequestObject();
   var reqBan = getXmlHttpRequestObject();
   var reqGlobal = getXmlHttpRequestObject();
-  var maxRam;
-  var allocatedRam;
 
   function updateEosData() {
     if (reqGlobal.readyState == 4 || reqGlobal.readyState == 0) {
@@ -48,22 +46,22 @@ jQuery(window).load(function($) {
       reqBan.onreadystatechange = handleResponseBan;
     }
     reqGlobal.send(JSON.stringify({json:"true", code:"eosio", scope:"eosio", table:"global"}));
-    reqEos.send();
-    reqRam.send(JSON.stringify({json:"true", code:"eosio", scope:"eosio", table:"rammarket", limit:"10"}));
-    reqBan.send(JSON.stringify({account_name:"eosnewyorkio"}));
   }
 
   function handleResponseGlobal() {
     if (reqGlobal.readyState == 4)
     {
-      parseStateGlobal(JSON.parse(reqGlobal.responseText));;
+      parseStateGlobal(JSON.parse(reqGlobal.responseText));
+      reqEos.send();
     }
   }
 
   function handleResponseEos() {
     if (reqEos.readyState == 4)
     {
-      parseStateEos(JSON.parse(reqEos.responseText));;
+      parseStateEos(JSON.parse(reqEos.responseText));
+      reqRam.send(JSON.stringify({json:"true", code:"eosio", scope:"eosio", table:"rammarket", limit:"10"}));
+      reqBan.send(JSON.stringify({account_name:"eosnewyorkio"}));
     }
   }
 
@@ -85,8 +83,21 @@ jQuery(window).load(function($) {
     if(xDoc == null)
     return
 
-    maxRam = xDoc.rows[0].max_ram_size;
-    allocatedRam = xDoc.rows[0].total_ram_bytes_reserved;
+    var maxRam = xDoc.rows[0].max_ram_size;
+    var allocatedRam = xDoc.rows[0].total_ram_bytes_reserved;
+    var ramUsed = 1 - (allocatedRam - maxRam);
+    var ramUtilization = (ramUsed / maxRam) * 100;
+
+    var target = document.getElementById("maxRam");
+    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
+    target = document.getElementById("allocatedRam");
+    target.innerHTML = (ramUsed / 1024 / 1024 / 1024).toFixed(2) + " GB";
+    target = document.getElementById("utilizedRam");
+    target.innerHTML = ramUtilization.toFixed(2) + " %";
+    target = document.getElementById("ramUtilVal");
+    target.innerHTML = ramUtilization.toFixed(2) + "%";
+    target = document.getElementById("ramUtilBar");
+    target.style.width = ramUtilization.toFixed(2) + "%";
   }
 
   function parseStateEos(xDoc){
@@ -114,22 +125,6 @@ jQuery(window).load(function($) {
     target.innerHTML = ramPriceEos + " EOS per KB";
     target = document.getElementById("ram-price-usd");
     target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
-
-    var ramUsed = 1 - (ramBaseBalance - maxRam);
-    target = document.getElementById("maxRam");
-    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
-
-    target = document.getElementById("allocatedRam");
-    target.innerHTML = (ramUsed / 1024 / 1024 / 1024).toFixed(2) + " GB";
-
-    var ramUtilization = (ramUsed / maxRam) * 100;
-    target = document.getElementById("utilizedRam");
-    target.innerHTML = ramUtilization.toFixed(2) + " %";
-
-    target = document.getElementById("ramUtilVal");
-    target.innerHTML = ramUtilization.toFixed(2) + "%";
-    target = document.getElementById("ramUtilBar");
-    target.style.width = ramUtilization.toFixed(2) + "%";
   }
 
   function parseStateBan(xDoc){
