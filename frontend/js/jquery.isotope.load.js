@@ -5,6 +5,8 @@ var netPriceEos;
 var netPriceUsd;
 var cpuPriceEos;
 var cpuPriceUsd;
+var maxRam;
+var usedRam;
 
 jQuery(window).load(function($) {
   "use strict";
@@ -83,21 +85,8 @@ jQuery(window).load(function($) {
     if(xDoc == null)
     return
 
-    var maxRam = xDoc.rows[0].max_ram_size;
-    var allocatedRam = xDoc.rows[0].total_ram_bytes_reserved;
-    var ramUsed = 1 - (allocatedRam - maxRam);
-    var ramUtilization = (ramUsed / maxRam) * 100;
-
-    var target = document.getElementById("maxRam");
-    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
-    target = document.getElementById("allocatedRam");
-    target.innerHTML = (ramUsed / 1024 / 1024 / 1024).toFixed(2) + " GB";
-    target = document.getElementById("utilizedRam");
-    target.innerHTML = ramUtilization.toFixed(2) + " %";
-    target = document.getElementById("ramUtilVal");
-    target.innerHTML = ramUtilization.toFixed(2) + "%";
-    target = document.getElementById("ramUtilBar");
-    target.style.width = ramUtilization.toFixed(2) + "%";
+    maxRam = xDoc.rows[0].max_ram_size;
+    usedRam = xDoc.rows[0].total_ram_bytes_reserved;
   }
 
   function parseStateEos(xDoc){
@@ -120,8 +109,19 @@ jQuery(window).load(function($) {
     ramQuoteBalance = ramQuoteBalance.substr(0,ramQuoteBalance.indexOf(' '));
     ramPriceEos = ((ramQuoteBalance / ramBaseBalance) * 1024).toFixed(8); // Price in kb
     ramPriceUsd = ramPriceEos * eosPriceUsd;
+    var ramUtilization = (usedRam / maxRam) * 100;
 
-    var target = document.getElementById("ram-price-eos");
+    var target = document.getElementById("maxRam");
+    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
+    target = document.getElementById("allocatedRam");
+    target.innerHTML = (usedRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
+    target = document.getElementById("utilizedRam");
+    target.innerHTML = ramUtilization.toFixed(2) + " %";
+    target = document.getElementById("ramUtilVal");
+    target.innerHTML = ramUtilization.toFixed(2) + "%";
+    target = document.getElementById("ramUtilBar");
+    target.style.width = ramUtilization.toFixed(2) + "%";
+    target = document.getElementById("ram-price-eos");
     target.innerHTML = ramPriceEos + " EOS per KB";
     target = document.getElementById("ram-price-usd");
     target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
