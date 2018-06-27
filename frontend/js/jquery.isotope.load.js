@@ -107,14 +107,14 @@ jQuery(window).load(function($) {
     ramBaseBalance = ramBaseBalance.substr(0,ramBaseBalance.indexOf(' '));
     var ramQuoteBalance = xDoc.rows[0].quote.balance; // Amount of EOS in the RAM collector
     ramQuoteBalance = ramQuoteBalance.substr(0,ramQuoteBalance.indexOf(' '));
-    ramPriceEos = ((ramQuoteBalance / ramBaseBalance) * 1024).toFixed(8); // Price in kb
+    ramPriceEos = ((ramQuoteBalance / ramBaseBalance) * 1024).toFixed(8); // Price in KiB
     ramPriceUsd = ramPriceEos * eosPriceUsd;
     var ramUtilization = (usedRam / maxRam) * 100;
 
     var target = document.getElementById("maxRam");
-    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
+    target.innerHTML = (maxRam / 1024 / 1024 / 1024).toFixed(2) + " GiB";
     target = document.getElementById("allocatedRam");
-    target.innerHTML = (usedRam / 1024 / 1024 / 1024).toFixed(2) + " GB";
+    target.innerHTML = (usedRam / 1024 / 1024 / 1024).toFixed(2) + " GiB";
     target = document.getElementById("utilizedRam");
     target.innerHTML = ramUtilization.toFixed(2) + " %";
     target = document.getElementById("ramUtilVal");
@@ -122,9 +122,9 @@ jQuery(window).load(function($) {
     target = document.getElementById("ramUtilBar");
     target.style.width = ramUtilization.toFixed(2) + "%";
     target = document.getElementById("ram-price-eos");
-    target.innerHTML = ramPriceEos + " EOS per KB";
+    target.innerHTML = ramPriceEos + " EOS per KiB";
     target = document.getElementById("ram-price-usd");
-    target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per KB";
+    target.innerHTML = "~ $" + (ramPriceEos * eosPriceUsd).toFixed(3) + " USD per KiB";
   }
 
   function parseStateBan(xDoc){
@@ -136,9 +136,9 @@ jQuery(window).load(function($) {
     var netAvailable = xDoc.net_limit.max / 1024; //~ convert bytes to kilobytes
     netPriceEos = ((netStaked / netAvailable)/3).toFixed(8); //~ divide by 3 to get average per day from 3 day avg
     netPriceUsd = netPriceEos * eosPriceUsd;
-    target.innerHTML = netPriceEos + " EOS/KB/Day";
+    target.innerHTML = netPriceEos + " EOS/KiB/Day";
     target = document.getElementById("net-price-usd");
-    target.innerHTML = "~ $" + (netPriceEos * eosPriceUsd).toFixed(3) + " USD/KB/Day";
+    target.innerHTML = "~ $" + (netPriceEos * eosPriceUsd).toFixed(3) + " USD/KiB/Day";
 
     target = document.getElementById("cpu-price-eos");
     var cpuStaked = xDoc.total_resources.cpu_weight.substr(0,xDoc.total_resources.cpu_weight.indexOf(' '));
@@ -251,15 +251,15 @@ $(function() {
         case "bytes":
         if (currencyValue == "USD") { value = (value/ramPriceUsd) * 1024; break; }
         if (currencyValue == "EOS") { value = (value/ramPriceEos) * 1024; break; }
-        case "KB":
+        case "KiB":
         if (currencyValue == "USD") { value = (value/ramPriceUsd); break; }
         if (currencyValue == "EOS") { value = (value/ramPriceEos); break; }
         break;
-        case "MB":
+        case "MiB":
         if (currencyValue == "USD") { value = (value/ramPriceUsd) / 1024; break; }
         if (currencyValue == "EOS") { value = (value/ramPriceEos) / 1024; break; }
         break;
-        case "GB":
+        case "GiB":
         if (currencyValue == "USD") { value = (value/ramPriceUsd) / 1024 / 1024; break; }
         if (currencyValue == "EOS") { value = (value/ramPriceEos) / 1024 / 1024; break; }
         break;
@@ -283,15 +283,15 @@ $(function() {
         case "bytes / day":
         if (currencyValue == "USD") { value = (value/netPriceUsd) * 1024; break; }
         if (currencyValue == "EOS") { value = (value/netPriceEos) * 1024; break; }
-        case "KB / day":
+        case "KiB / day":
         if (currencyValue == "USD") { value = (value/netPriceUsd); break; }
         if (currencyValue == "EOS") { value = (value/netPriceEos); break; }
         break;
-        case "MB / day":
+        case "MiB / day":
         if (currencyValue == "USD") { value = (value/netPriceUsd) / 1024; break; }
         if (currencyValue == "EOS") { value = (value/netPriceEos) / 1024; break; }
         break;
-        case "GB / day":
+        case "GiB / day":
         if (currencyValue == "USD") { value = (value/netPriceUsd) / 1024 / 1024; break; }
         if (currencyValue == "EOS") { value = (value/netPriceEos) / 1024 / 1024; break; }
         break;
@@ -342,15 +342,15 @@ $(function() {
         case "bytes":
         if (currencyValue == "USD") { value = (value*ramPriceUsd) / 1024; break; }
         if (currencyValue == "EOS") { value = (value*ramPriceEos) / 1024; break; }
-        case "KB":
+        case "KiB":
         if (currencyValue == "USD") { value = (value*ramPriceUsd); break; }
         if (currencyValue == "EOS") { value = (value*ramPriceEos); break; }
         break;
-        case "MB":
+        case "MiB":
         if (currencyValue == "USD") { value = (value*ramPriceUsd) * 1024; break; }
         if (currencyValue == "EOS") { value = (value*ramPriceEos) * 1024; break; }
         break;
-        case "GB":
+        case "GiB":
         if (currencyValue == "USD") { value = (value*ramPriceUsd) * 1024 * 1024; break; }
         if (currencyValue == "EOS") { value = (value*ramPriceEos) * 1024 * 1024; break; }
         break;
@@ -374,15 +374,15 @@ $(function() {
         case "bytes / day":
         if (currencyValue == "USD") { value = (value*netPriceUsd) / 1024; break; }
         if (currencyValue == "EOS") { value = (value*netPriceEos) / 1024; break; }
-        case "KB / day":
+        case "KiB / day":
         if (currencyValue == "USD") { value = (value*netPriceUsd); break; }
         if (currencyValue == "EOS") { value = (value*netPriceEos); break; }
         break;
-        case "MB / day":
+        case "MiB / day":
         if (currencyValue == "USD") { value = (value*netPriceUsd) * 1024; break; }
         if (currencyValue == "EOS") { value = (value*netPriceEos) * 1024; break; }
         break;
-        case "GB / day":
+        case "GiB / day":
         if (currencyValue == "USD") { value = (value*netPriceUsd) * 1024 * 1024; break; }
         if (currencyValue == "EOS") { value = (value*netPriceEos) * 1024 * 1024; break; }
         break;
