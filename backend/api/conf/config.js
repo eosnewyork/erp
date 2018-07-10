@@ -4,8 +4,8 @@ var config = {
     host: '127.0.0.1',
     port: '5432',
     dbname: 'dbname',
-    user: 'username',
-    pass: 'pw',
+    user: '',
+    pass: '',
   },
   //~ Server details
   server: {
