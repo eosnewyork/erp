@@ -787,8 +787,13 @@ section.same-color-as-previous-section {
 }
 .tile-6 {
   width: 1100px;
-  height; 700px;
+  height: 700px;
   padding: 30px 35px 20px 35px;
+}
+.tile-7 {
+	width: 580px;
+	height: 450px;
+	padding: 30px 35px 20px 35px;
 }
 .element.bg-change {
 	background: #fff;
