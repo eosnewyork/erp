@@ -39,15 +39,16 @@ jQuery(window).load(function($) {
     }
 
     if (reqEos.readyState == 4 || reqEos.readyState == 0) {
-      reqEos.open("GET", "https://api.coinmarketcap.com/v2/ticker/1765/"); //~ EOS/USD price
+      // reqEos.open("GET", "https://api.coinmarketcap.com/v2/ticker/1765/"); //~ EOS/USD price
+      reqEos.open(
+        "GET",
+        "https://api.newdex.io/v1/ticker?symbol=eosio.token-eos-eusd"
+      );
       reqEos.onreadystatechange = handleResponseEos;
     }
 
     if (reqRam.readyState == 4 || reqRam.readyState == 0) {
-      reqRam.open(
-        "POST",
-        "https://api.eosnewyork.io/v1/chain/get_table_rows"
-      );
+      reqRam.open("POST", "https://api.eosnewyork.io/v1/chain/get_table_rows");
       reqRam.onreadystatechange = handleResponseRam;
     }
 
@@ -111,7 +112,8 @@ jQuery(window).load(function($) {
     if (xDoc == null) return;
 
     var target = document.getElementById("eos-price-usd");
-    eosPriceUsd = xDoc.data.quotes.USD.price;
+    // eosPriceUsd = xDoc.data.quotes.USD.price;
+    eosPriceUsd = xDoc.data.last;
     target.innerHTML = "1 EOS = $" + eosPriceUsd.toFixed(2) + " USD";
   }
 
