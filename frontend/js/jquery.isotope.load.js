@@ -33,7 +33,7 @@ jQuery(window).load(function($) {
     if (reqGlobal.readyState == 4 || reqGlobal.readyState == 0) {
       reqGlobal.open(
         "POST",
-        "https://api.eosnewyork.io/v1/chain/get_table_rows"
+        "https://proxy.eosnode.tools/v1/chain/get_table_rows"
       );
       reqGlobal.onreadystatechange = handleResponseGlobal;
     }
@@ -48,12 +48,15 @@ jQuery(window).load(function($) {
     }
 
     if (reqRam.readyState == 4 || reqRam.readyState == 0) {
-      reqRam.open("POST", "https://api.eosnewyork.io/v1/chain/get_table_rows");
+      reqRam.open(
+        "POST",
+        "https://proxy.eosnode.tools/v1/chain/get_table_rows"
+      );
       reqRam.onreadystatechange = handleResponseRam;
     }
 
     if (reqBan.readyState == 4 || reqBan.readyState == 0) {
-      reqBan.open("POST", "https://api.eosnewyork.io/v1/chain/get_account");
+      reqBan.open("POST", "https://proxy.eosnode.tools/v1/chain/get_account");
       reqBan.onreadystatechange = handleResponseBan;
     }
     reqGlobal.send(
