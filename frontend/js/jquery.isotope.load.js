@@ -8,7 +8,7 @@ var cpuPriceUsd;
 var maxRam;
 var usedRam;
 
-jQuery(window).load(function($) {
+jQuery(window).load(function ($) {
   "use strict";
 
   /* --- Begin EOS data update routines --- */
@@ -42,7 +42,7 @@ jQuery(window).load(function($) {
       // reqEos.open("GET", "https://api.coinmarketcap.com/v2/ticker/1765/"); //~ EOS/USD price
       reqEos.open(
         "GET",
-        "https://api.newdex.io/v1/ticker?symbol=eosio.token-eos-eusd"
+        "https://api.newdex.io/v1/ticker?symbol=eosio.token-eos-cusd"
       );
       reqEos.onreadystatechange = handleResponseEos;
     }
@@ -198,11 +198,11 @@ jQuery(window).load(function($) {
         transformsEnabled: false
       });
 
-    jQuery(window).smartresize(function() {
+    jQuery(window).smartresize(function () {
       $container.isotope("layout");
     });
 
-    $options.on("click", function() {
+    $options.on("click", function () {
       var $this = jQuery(this),
         href = $this.attr("href");
 
@@ -220,7 +220,7 @@ jQuery(window).load(function($) {
     });
 
     jQuery(window)
-      .on("hashchange", function() {
+      .on("hashchange", function () {
         var theFilter = window.location.hash.replace(/^#/, "");
 
         if (theFilter == false) theFilter = "home";
@@ -247,13 +247,13 @@ jQuery(window).load(function($) {
     .trigger("smartresize");
 });
 
-$(".splink").on("click", function() {
+$(".splink").on("click", function () {
   "use strict";
   $("html, body").animate({ scrollTop: 0 }, 1000);
 });
 
-$(function() {
-  $(".calc-change").on("change keydown paste input", function(e) {
+$(function () {
+  $(".calc-change").on("change keydown paste input", function (e) {
     var elem = $(this);
     var target;
     var unitTarget;
