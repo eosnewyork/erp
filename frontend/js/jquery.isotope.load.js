@@ -8,6 +8,8 @@ var cpuPriceUsd;
 var maxRam;
 var usedRam;
 
+var chainEndpoint = "https://api.eossweden.org";
+
 jQuery(window).load(function($) {
   "use strict";
 
@@ -31,10 +33,7 @@ jQuery(window).load(function($) {
 
   function updateEosData() {
     if (reqGlobal.readyState == 4 || reqGlobal.readyState == 0) {
-      reqGlobal.open(
-        "POST",
-        "https://proxy.eosnode.tools/v1/chain/get_table_rows"
-      );
+      reqGlobal.open("POST", chainEndpoint + "/v1/chain/get_table_rows");
       reqGlobal.onreadystatechange = handleResponseGlobal;
     }
 
@@ -48,15 +47,12 @@ jQuery(window).load(function($) {
     }
 
     if (reqRam.readyState == 4 || reqRam.readyState == 0) {
-      reqRam.open(
-        "POST",
-        "https://proxy.eosnode.tools/v1/chain/get_table_rows"
-      );
+      reqRam.open("POST", chainEndpoint + "/v1/chain/get_table_rows");
       reqRam.onreadystatechange = handleResponseRam;
     }
 
     if (reqBan.readyState == 4 || reqBan.readyState == 0) {
-      reqBan.open("POST", "https://proxy.eosnode.tools/v1/chain/get_account");
+      reqBan.open("POST", chainEndpoint + "/v1/chain/get_account");
       reqBan.onreadystatechange = handleResponseBan;
     }
     reqGlobal.send(

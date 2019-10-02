@@ -99,8 +99,8 @@ public class ErpResUpdateBatch {
 	public static void main(String[] args){
 		//~ Backup node: node1.eosphere.io:8888
 		String strUrlEosPriceUsd = "https://api.coinmarketcap.com/v2/ticker/1765";
-		String strUrlGetTableRows = "https://proxy.eosnode.tools/v1/chain/get_table_rows";
-		String strUrlGetAccount = "https://proxy.eosnode.tools/v1/chain/get_account";
+		String strUrlGetTableRows = "https://api.eossweden.org/v1/chain/get_table_rows";
+		String strUrlGetAccount = "https://api.eossweden.org/v1/chain/get_account";
 
 		//~ Instantiate objects
 		PostgresHelper client = initDatabase();

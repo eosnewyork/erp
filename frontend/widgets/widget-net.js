@@ -25,7 +25,7 @@ jQuery(window).load(function($) {
     }
 
     if (reqBan.readyState == 4 || reqBan.readyState == 0) {
-      reqBan.open("POST", "https://proxy.eosnode.tools/v1/chain/get_account");
+      reqBan.open("POST", "https://api.eossweden.org/v1/chain/get_account");
       reqBan.onreadystatechange = handleResponseBan;
     }
     reqEos.send();
