@@ -41,7 +41,7 @@ jQuery(window).load(function($) {
       // reqEos.open("GET", "https://api.coinmarketcap.com/v2/ticker/1765/"); //~ EOS/USD price
       reqEos.open(
         "GET",
-        "https://api.newdex.io/v1/ticker?symbol=eosio.token-eos-eusd"
+        "https://api.newdex.io/v1/ticker?symbol=eosio.token-eos-cusd"
       );
       reqEos.onreadystatechange = handleResponseEos;
     }
