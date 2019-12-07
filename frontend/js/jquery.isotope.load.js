@@ -8,7 +8,7 @@ var cpuPriceUsd;
 var maxRam;
 var usedRam;
 
-var chainEndpoint = "https://api.eossweden.org";
+var chainEndpoint = "https://eos.greymass.com";
 
 jQuery(window).load(function($) {
   "use strict";
