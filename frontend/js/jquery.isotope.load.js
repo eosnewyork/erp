@@ -41,7 +41,8 @@ jQuery(window).load(function($) {
       // reqEos.open("GET", "https://api.coinmarketcap.com/v2/ticker/1765/"); //~ EOS/USD price
       reqEos.open(
         "GET",
-        "https://api.newdex.io/v1/ticker?symbol=eosio.token-eos-cusd"
+        "https://api.coinbase.com/v2/prices/EOS-USD/spot",
+        true
       );
       reqEos.onreadystatechange = handleResponseEos;
     }
@@ -112,7 +113,7 @@ jQuery(window).load(function($) {
 
     var target = document.getElementById("eos-price-usd");
     // eosPriceUsd = xDoc.data.quotes.USD.price;
-    eosPriceUsd = xDoc.data.last;
+    eosPriceUsd = parseFloat(xDoc.data.amount);
     target.innerHTML = "1 EOS = $" + eosPriceUsd.toFixed(2) + " USD";
   }
 
