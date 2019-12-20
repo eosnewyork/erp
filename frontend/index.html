@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>EOS Resource Planner </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="Andrew Coutts">
-    <meta name="Description" content="ERP is a free and open-source tool to display the current price for EOSIO network storage and bandwidth resources.">
+    <meta charset="utf-8" />
+    <title>EOS Resource Planner</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="author" content="Andrew Coutts" />
+    <meta
+      name="Description"
+      content="ERP is a free and open-source tool to display the current price for EOSIO network storage and bandwidth resources."
+    />
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="57x57"
+      href="apple-touch-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="114x114"
+      href="apple-touch-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="72x72"
+      href="apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="apple-touch-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="60x60"
+      href="apple-touch-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="120x120"
+      href="apple-touch-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="76x76"
+      href="apple-touch-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="152x152"
+      href="apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon-196x196.png"
+      sizes="196x196"
+    />
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="EOS Resource Planner"/>
+    <meta name="application-name" content="EOS Resource Planner" />
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="mstile-144x144.png" />
     <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
@@ -31,15 +74,48 @@
     <!-- Favicons -->
 
     <!-- Sripts -->
-    <link href="css/reset.css" rel="stylesheet" type="text/css" media="screen" />
+    <link
+      href="css/reset.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/convert.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="css/responsive.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link
+      href="css/convert.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="css/styles.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="css/jquery.fancybox.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="css/responsive.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="css/flexslider.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+    />
     <script src="js/modernizr.js" type="text/javascript"></script>
     <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script src="js/jquery.isotope.load.js" type="text/javascript"></script>
@@ -62,7 +138,10 @@
       <div id="menu-button">
         <div class="centralizer">
           <div class="cursor">
-            <div id="nav-button"> <span class="nav-bar"></span> <span class="nav-bar"></span> <span class="nav-bar"></span> </div>
+            <div id="nav-button">
+              <span class="nav-bar"></span> <span class="nav-bar"></span>
+              <span class="nav-bar"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -74,8 +153,8 @@
         <h4 id="headertitle">EOS Resource Planner</h4>
         <nav id="main-nav">
           <ul class="clearfix" id="options">
-            <li> <a href="#">Overview</a></li>
-            <li> <a href="#calc">Calculator</a></li>
+            <li><a href="#">Overview</a></li>
+            <li><a href="#calc">Calculator</a></li>
             <!-- coming soon <li> <a href="#faq">FAQ</a> </li>
             coming soon <li> <a href="#about">About</a> </li> -->
           </ul>
@@ -126,51 +205,89 @@
               <p class="small">Introduction</p>
               <div>
                 <h4 class="header icon-to-the-right">What is RAM?</h4>
-                <p>RAM is required to store data on the blockchain and must be purchased. You get a set number of bytes of storage based on the current RAM market price. The price automatically adjusts up and down with buying and selling action. When you release storage you can sell RAM back to recover EOS at the current ram market price.</p>
+                <p>
+                  RAM is required to store data on the blockchain and must be
+                  purchased. You get a set number of bytes of storage based on
+                  the current RAM market price. The price automatically adjusts
+                  up and down with buying and selling action. When you release
+                  storage you can sell RAM back to recover EOS at the current
+                  ram market price.
+                </p>
               </div>
               <div>
-                <h4 class="header icon-to-the-right">What is Network Bandwidth?</h4>
-                <p>Network Bandwidth is measured as your average consumption in bytes over the last 3 days. Net bandwidth is temporarily consumed every time you send an action or transaction but decreases over time returning to 0. The more tokens you stake for net bandwidth the more you get to use. You can unstake at any time to reclaim your EOS tokens.</p>
+                <h4 class="header icon-to-the-right">
+                  What is Network Bandwidth?
+                </h4>
+                <p>
+                  Network Bandwidth is measured as your average consumption in
+                  bytes over the last 3 days. Net bandwidth is temporarily
+                  consumed every time you send an action or transaction but
+                  decreases over time returning to 0. The more tokens you stake
+                  for net bandwidth the more you get to use. You can unstake at
+                  any time to reclaim your EOS tokens.
+                </p>
               </div>
               <div>
                 <h4 class="header icon-to-the-right">What is CPU Bandwidth?</h4>
-                <p>CPU Bandwidth is measured as your average consumption in microseconds over the last 3 days. CPU bandwidth is temporarily consumed when you send an action or transaction but decreases over time returning to 0. The longer your transaction runs, the more CPU bandwidth it will consume. You can unstake at any time  to reclaim your EOS tokens.</p>
+                <p>
+                  CPU Bandwidth is measured as your average consumption in
+                  microseconds over the last 3 days. CPU bandwidth is
+                  temporarily consumed when you send an action or transaction
+                  but decreases over time returning to 0. The longer your
+                  transaction runs, the more CPU bandwidth it will consume. You
+                  can unstake at any time to reclaim your EOS tokens.
+                </p>
               </div>
               <div class="icons futuro_icons_285 absolute-top-right"></div>
             </div>
             <div class="element tile-4 home bg-change">
               <p class="small">Network Statistics</p>
               <h4 class="header icon-to-the-right">Overall RAM</h4>
-              <p class="hint">This is the total amount of RAM that has been reserved across the network. Note: this is not indicative of RAM used by token holders and applications.</p>
+              <p class="hint">
+                This is the total amount of RAM that has been reserved across
+                the network. Note: this is not indicative of RAM used by token
+                holders and applications.
+              </p>
               <div>
-                <p class="col">Total Available: </p>
+                <p class="col">Total Available:</p>
                 <p class="col" id="maxRam">0.00 GiB</p>
               </div>
               <div>
-                <p class="col">Total Reserved: </p>
+                <p class="col">Total Reserved:</p>
                 <p class="col" id="allocatedRam">0.00 GiB</p>
               </div>
               <div>
-                <p class="col">Reserved: </p>
+                <p class="col">Reserved:</p>
                 <p class="col" id="utilizedRam">0.00 %</p>
               </div>
               <div>
                 <div class="progress">
-                  <div id="ramUtilBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                  <div
+                    id="ramUtilBar"
+                    class="progress-bar progress-bar-striped"
+                    role="progressbar"
+                    style="width: 0%"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
                     <p id="ramUtilVal">10%</p>
                   </div>
                 </div>
-                <p class="hint">Note: Block producers will manage the available RAM and add additional capacity as needed.</p>
+                <p class="hint">
+                  Note: Block producers will manage the available RAM and add
+                  additional capacity as needed.
+                </p>
               </div>
               <div class="icons futuro_icons_346 absolute-top-right"></div>
             </div>
-            <div>
+            <!-- <div>
               <div class="element tile-7 home bg-change">
                   <h4 class="header icon-to-the-right">CPU Emergency</h4>
                   <iframe src="https://cpuemergency.com/embed.html" width=100% height=100%></iframe>
               </div>
-            </div>
-            
+            </div> -->
+
             <!-- END LANDING PAGE ITEMS -->
 
             <!-- CALCULATE PAGE ITEMS -->
@@ -179,38 +296,65 @@
               <div class="convert">
                 <h3 class="header">I currently have:</h3>
                 <div>
-                  <p class="col"><input name="eos-afford-ram" type="text" class="calc-change" id="eos-afford-ram" size="8" title="0.00000000" /></p>
+                  <p class="col">
+                    <input
+                      name="eos-afford-ram"
+                      type="text"
+                      class="calc-change"
+                      id="eos-afford-ram"
+                      size="8"
+                      title="0.00000000"
+                    />
+                  </p>
                   <p class="col">
                     <select size="1" class="calc-change" id="ram-have-unit">
                       <option value="eos">EOS</option>
                       <option value="usd">USD</option>
                     </select>
                   </p>
-                  <p class="col"> available for RAM</p>
+                  <p class="col">available for RAM</p>
                 </div>
                 <div>
-                  <p class="col"><input name="eos-afford-net" type="text" class="calc-change" id="eos-afford-net" size="8" title="0.00000000" /></p>
+                  <p class="col">
+                    <input
+                      name="eos-afford-net"
+                      type="text"
+                      class="calc-change"
+                      id="eos-afford-net"
+                      size="8"
+                      title="0.00000000"
+                    />
+                  </p>
                   <p class="col">
                     <select size="1" class="calc-change" id="net-have-unit">
                       <option value="eos">EOS</option>
                       <option value="usd">USD</option>
                     </select>
                   </p>
-                  <p class="col"> available for Net</p>
+                  <p class="col">available for Net</p>
                 </div>
                 <div>
-                  <p class="col"><input name="eos-afford-cpu" type="text" class="calc-change" id="eos-afford-cpu" size="8" title="0.00000000" /></p>
+                  <p class="col">
+                    <input
+                      name="eos-afford-cpu"
+                      type="text"
+                      class="calc-change"
+                      id="eos-afford-cpu"
+                      size="8"
+                      title="0.00000000"
+                    />
+                  </p>
                   <p class="col">
                     <select size="1" class="calc-change" id="cpu-have-unit">
                       <option value="eos">EOS</option>
                       <option value="usd">USD</option>
                     </select>
                   </p>
-                  <p class="col"> available for CPU</p>
+                  <p class="col">available for CPU</p>
                 </div>
                 <!-- <input type="submit" value="calculate-afford" id="calculate-afford" name="Calculate" /> -->
-                <br>
-                <br>
+                <br />
+                <br />
                 <h3 class="header">You can afford:</h3>
                 <div>
                   <p class="col" id="result-afford-ram">0</p>
@@ -222,7 +366,7 @@
                       <option value="net-cost-gigabytes">GiB</option>
                     </select>
                   </p>
-                  <p class="col"> of RAM</p>
+                  <p class="col">of RAM</p>
                 </div>
                 <div>
                   <p class="col" id="result-afford-net">0</p>
@@ -234,7 +378,7 @@
                       <option value="net-cost-gigabytes">GiB / day</option>
                     </select>
                   </p>
-                  <p class="col"> of Network Bandwidth</p>
+                  <p class="col">of Network Bandwidth</p>
                 </div>
                 <div>
                   <p class="col" id="result-afford-cpu">0</p>
@@ -245,7 +389,7 @@
                       <option value="seconds">s / day</option>
                     </select>
                   </p>
-                  <p class="col"> of CPU Bandwidth</p>
+                  <p class="col">of CPU Bandwidth</p>
                 </div>
               </div>
             </div>
@@ -254,7 +398,16 @@
               <div class="convert">
                 <h3 class="header">I need to buy:</h3>
                 <div>
-                  <p class="col"><input name="eos-cost-ram" type="text" class="calc-change" id="eos-cost-ram" size="8" title="0" /></p>
+                  <p class="col">
+                    <input
+                      name="eos-cost-ram"
+                      type="text"
+                      class="calc-change"
+                      id="eos-cost-ram"
+                      size="8"
+                      title="0"
+                    />
+                  </p>
                   <p class="col">
                     <select size="1" class="calc-change" id="ram-need-unit">
                       <option value="ram-cost-bytes">bytes</option>
@@ -263,10 +416,19 @@
                       <option value="ram-cost-gigabytes">GiB</option>
                     </select>
                   </p>
-                  <p class="col"> of RAM</p>
+                  <p class="col">of RAM</p>
                 </div>
                 <div>
-                  <p class="col"><input name="eos-cost-net" type="text" class="calc-change" id="eos-cost-net" size="8" title="0" /></p>
+                  <p class="col">
+                    <input
+                      name="eos-cost-net"
+                      type="text"
+                      class="calc-change"
+                      id="eos-cost-net"
+                      size="8"
+                      title="0"
+                    />
+                  </p>
                   <p class="col">
                     <select size="1" class="calc-change" id="net-need-unit">
                       <option value="net-cost-bytes">bytes / day</option>
@@ -275,10 +437,19 @@
                       <option value="net-cost-gigabytes">GiB / day</option>
                     </select>
                   </p>
-                  <p class="col"> of Network Bandwidth</p>
+                  <p class="col">of Network Bandwidth</p>
                 </div>
                 <div>
-                  <p class="col"><input name="eos-cost-cpu" type="text" class="calc-change" id="eos-cost-cpu" size="8" title="0" /></p>
+                  <p class="col">
+                    <input
+                      name="eos-cost-cpu"
+                      type="text"
+                      class="calc-change"
+                      id="eos-cost-cpu"
+                      size="8"
+                      title="0"
+                    />
+                  </p>
                   <p class="col">
                     <select size="1" class="calc-change" id="cpu-need-unit">
                       <option value="microseconds">µs / day</option>
@@ -286,11 +457,11 @@
                       <option value="seconds">s / day</option>
                     </select>
                   </p>
-                  <p class="col"> of CPU Bandwidth</p>
+                  <p class="col">of CPU Bandwidth</p>
                 </div>
                 <!-- <input type="submit" value="Calculate" id="calculate-eos" name="Calculate" /> -->
-                <br>
-                <br>
+                <br />
+                <br />
                 <h3 class="header">It will cost:</h3>
                 <div>
                   <p class="col" id="result-cost-ram">0.00000000</p>
@@ -300,7 +471,7 @@
                       <option value="usd">USD</option>
                     </select>
                   </p>
-                  <p class="col"> for RAM</p>
+                  <p class="col">for RAM</p>
                 </div>
                 <div>
                   <p class="col" id="result-cost-net">0.00000000</p>
@@ -310,7 +481,7 @@
                       <option value="usd">USD</option>
                     </select>
                   </p>
-                  <p class="col"> for Net Bandwidth</p>
+                  <p class="col">for Net Bandwidth</p>
                 </div>
                 <div>
                   <p class="col" id="result-cost-cpu">0.00000000</p>
@@ -320,7 +491,7 @@
                       <option value="usd">USD</option>
                     </select>
                   </p>
-                  <p class="col"> for CPU Bandwidth</p>
+                  <p class="col">for CPU Bandwidth</p>
                 </div>
               </div>
             </div>
@@ -334,20 +505,55 @@
         <div class="container clearfix">
           <div class="col">
             <div class="col" id="sourcecode">
-              <p>ERP is free & open source - help contribute here:<br />
-                <a href="https://github.com/eosnewyork/erp" target="_blank" title="">Source Code</a>
+              <p>
+                ERP is free & open source - help contribute here:<br />
+                <a
+                  href="https://github.com/eosnewyork/erp"
+                  target="_blank"
+                  title=""
+                  >Source Code</a
+                >
               </p>
             </div>
             <div class="col">
               <ul class="social-list clearfix col">
-                <li> <a href="https://t.me/eosnewyorkchat"><i class="fa fa-telegram"></i></a> </li>
-                <li> <a href="mailto:community@eosnewyork.io"><i class="fa fa-envelope"></i></a> </li>
-                <li> <a href="https://www.meetup.com/EOS-New-York/"><i class="fa fa-meetup"></i></a> </li>
-                <li> <a href="https://medium.com/@eosnewyork"><i class="fa fa-medium"></i></a> </li>
-                <li> <a href="https://www.youtube.com/channel/UCg7aeCSXUTP49w_elxgYIXA"><i class="fa fa-youtube"></i></a> </li>
-                <li> <a href="https://twitter.com/eosnewyork"><i class="fa fa-twitter"></i></a> </li>
+                <li>
+                  <a href="https://t.me/eosnewyorkchat"
+                    ><i class="fa fa-telegram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="mailto:community@eosnewyork.io"
+                    ><i class="fa fa-envelope"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.meetup.com/EOS-New-York/"
+                    ><i class="fa fa-meetup"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://medium.com/@eosnewyork"
+                    ><i class="fa fa-medium"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/channel/UCg7aeCSXUTP49w_elxgYIXA"
+                    ><i class="fa fa-youtube"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/eosnewyork"
+                    ><i class="fa fa-twitter"></i
+                  ></a>
+                </li>
               </ul>
-              <a class="col" id="eosnylogo" href="https://www.eosnewyork.io"></a>
+              <a
+                class="col"
+                id="eosnylogo"
+                href="https://www.eosnewyork.io"
+              ></a>
             </div>
           </div>
         </div>
